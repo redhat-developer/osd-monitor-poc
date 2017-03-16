@@ -25,6 +25,7 @@ rm -f $PCP_VAR_DIR/pmns/root_xfs $PCP_VAR_DIR/pmns/root_jbd2 $PCP_VAR_DIR/pmns/r
 # Disable service advertising - no avahi support in the container
 # (dodges warnings from pmcd attempting to connect during startup)
 echo "-A" >> $PCP_PMCDOPTIONS_PATH
+echo "-H $PCP_HOSTNAME" >> $PCP_PMCDOPTIONS_PATH
 
 # allow unauthenticated access to proc.* metrics (default is false)
 export PROC_ACCESS=1
