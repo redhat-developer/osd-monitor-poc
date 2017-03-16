@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#! /bin/bash -e
 
 : "${GF_PATHS_DATA:=/var/lib/grafana}"
 : "${GF_PATHS_LOGS:=/var/log/grafana}"
@@ -11,7 +11,8 @@
 : "${GF_DATASOURCE_TENANT:=fillmein}"
 : "${GF_DATASOURCE_TOKEN:=fillmein}"
 
-
+# Launch pmcd side process
+./run-pmcd.sh &
 
 /usr/sbin/grafana-server               \
   --homepath=/usr/share/grafana         \

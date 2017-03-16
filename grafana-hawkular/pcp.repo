@@ -1,0 +1,8 @@
+[pcp-bintray]
+name=Performance Co-Pilot Bintray Repository
+baseurl=https://dl.bintray.com/pcp/el7
+gpgkey=https://bintray.com/user/downloadSubjectPublicKey?username=pcp
+repo_gpgcheck=0
+gpgcheck=1
+enabled=1
+

@@ -1,5 +1,10 @@
 FROM centos:7
 
+# Install pcp - collection basics
+# would prefer only pmcd, and not the /bin/pm*tools etc.
+COPY pcp.repo /etc/yum.repos.d/pcp.repo
+RUN yum install -y pcp && yum clean all
+
 ENV GRAFANA_VERSION 4.1.2-1486989747
 
 # Install grafana
@@ -26,11 +31,17 @@ RUN chmod +x /usr/bin/fix-permissions && \
 
 EXPOSE 3000
 
+COPY ./run-pmcd.sh /run-pmcd.sh
+RUN /usr/bin/fix-permissions /etc/pcp && \
+    /usr/bin/fix-permissions /var/log/pcp
+EXPOSE 44321
+
 # some configuration secrets are mandatory - pass them with # docker run -e | oc run --env
 #
 # ENV GF_SECURITY_ADMIN_PASSWORD something
 # ENV GF_DATASOURCE_URL https://foo.bar/hawkular/metrics
 # ENV GF_DATASOURCE_TENANT foo
 # ENV GF_DATASOURCE_TOKEN bar
+# ENV PCP_HOSTNAME pod-65-foobar
 
 ENTRYPOINT ["/run.sh"]
