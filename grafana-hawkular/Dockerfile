@@ -33,7 +33,6 @@ EXPOSE 3000
 
 COPY ./run-pmcd.sh /run-pmcd.sh
 RUN /usr/bin/fix-permissions /etc/pcp && \
-    /usr/bin/fix-permissions /etc/sysconfig/pcp && \
     /usr/bin/fix-permissions /var/lib/pcp && \
     /usr/bin/fix-permissions /var/log/pcp
 EXPOSE 44321
