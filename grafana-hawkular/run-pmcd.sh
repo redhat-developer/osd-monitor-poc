@@ -30,6 +30,9 @@ echo "-H $PCP_HOSTNAME" >> $PCP_PMCDOPTIONS_PATH
 # allow unauthenticated access to proc.* metrics (default is false)
 export PROC_ACCESS=1
 
+# override $PCP_DIR so as to suppress the uid=0 assertion in the rc.pmcd script
+export PCP_DIR=/
+
 # start pmcd in the background
 /usr/share/pcp/lib/pmcd start &
 
