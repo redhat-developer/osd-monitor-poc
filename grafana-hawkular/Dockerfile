@@ -45,6 +45,5 @@ EXPOSE 44321
 # ENV GF_DATASOURCE_URL https://foo.bar/hawkular/metrics
 # ENV GF_DATASOURCE_TENANT foo
 # ENV GF_DATASOURCE_TOKEN bar
-# ENV PCP_HOSTNAME pod-65-foobar
 
 ENTRYPOINT ["/run.sh"]

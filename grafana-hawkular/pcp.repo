@@ -1,8 +1,10 @@
-[pcp-bintray]
-name=Performance Co-Pilot Bintray Repository
-baseurl=https://dl.bintray.com/pcp/el7
-gpgkey=https://bintray.com/user/downloadSubjectPublicKey?username=pcp
-repo_gpgcheck=0
+[fche-pcp]
+name=Copr repo for pcp owned by fche
+baseurl=https://copr-be.cloud.fedoraproject.org/results/fche/pcp/epel-7-$basearch/
+type=rpm-md
+skip_if_unavailable=True
 gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/fche/pcp/pubkey.gpg
+repo_gpgcheck=0
 enabled=1
-
+enabled_metadata=1
