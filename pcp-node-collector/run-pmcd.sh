@@ -2,6 +2,9 @@
 
 : "${PCP_HOSTNAME:=`hostname`}"
 
+# Adjust to OSD/OSO? AWS conventions: ip-172-31-51-101.ec2.internal => NODE-ip-172-31-51-101
+PCP_NODE_HOSTNAME=NODE-`echo $PCP_HOSTNAME | cut -f1 -d.`
+
 # Set up internal pmcd
 
 # Setup pmcd to run in unprivileged mode of operation
@@ -25,4 +28,4 @@ cd $PCP_VAR_DIR/pmns
 ./Rebuild
 
 cd $PCP_LOG_DIR
-exec /usr/libexec/pcp/bin/pmcd -l /dev/no-such-file -f -A -H $PCP_HOSTNAME
+exec /usr/libexec/pcp/bin/pmcd -l /dev/no-such-file -f -A -H $PCP_NODE_HOSTNAME
