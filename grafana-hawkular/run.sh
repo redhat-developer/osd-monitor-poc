@@ -10,6 +10,7 @@
 : "${GF_DATASOURCE_URL:=fillmein}"
 : "${GF_DATASOURCE_TENANT:=fillmein}"
 : "${GF_DATASOURCE_TOKEN:=fillmein}"
+: "${GF_DATASOURCE_TOKENPATH:=fillmein}"
 
 # Launch pmcd side process
 ./run-pmcd.sh &
@@ -36,6 +37,11 @@ do
 done   
 
 echo registering hawkular datasource
+
+if [ -f ${GF_DATASOURCE_TOKENPATH} ]; then
+    GF_DATASOURCE_TOKEN=`cat ${GF_DATASOURCE_TOKENPATH}`
+fi    
+
 /usr/bin/curl $server/api/datasources -s -X POST -H 'Content-Type: application/json;charset=utf-8' -d '{"name":"hawkular","type":"hawkular-datasource","url":"'${GF_DATASOURCE_URL}'","access":"proxy","jsonData":{"tenant":"'${GF_DATASOURCE_TENANT}'","token":"'${GF_DATASOURCE_TOKEN}'"},"secureJsonFields":{},"withCredentials":true,"isDefault":true}'
 
 wait
