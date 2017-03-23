@@ -20,4 +20,9 @@ service docker start
     docker build -t registry.devshift.net/perf/pcp-central-logger:latest . 
     docker push registry.devshift.net/perf/pcp-central-logger:latest
 )
+(
+    cd pcp-central-webapi
+    docker build -t registry.devshift.net/perf/pcp-central-webapi:latest . 
+    docker push registry.devshift.net/perf/pcp-central-webapi:latest
+)
 

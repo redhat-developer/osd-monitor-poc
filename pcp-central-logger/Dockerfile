@@ -22,5 +22,5 @@ RUN echo --show-all > /etc/pcp/pmmgr/target-kubectl-pod
 
 ENV MALLOC_ARENA_MAX 4
 
-VOLUME /var/log/pcp/pmmgr
+VOLUME /var/log/pcp
 ENTRYPOINT ["/usr/libexec/pcp/bin/pmmgr", "-v"]
