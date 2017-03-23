@@ -16,7 +16,9 @@ COPY fix-permissions /usr/bin/fix-permissions
 RUN chmod +x /usr/bin/fix-permissions && \
     /usr/bin/fix-permissions /var/log/pcp
 
-RUN touch /etc/pcp/pmmgr/target-kubectl-pod
+# would just touch the file, but want to suppress a silly kubectl warning
+# https://github.com/kubernetes/kubernetes/issues/31943
+RUN echo --show-all > /etc/pcp/pmmgr/target-kubectl-pod
 
 ENV MALLOC_ARENA_MAX 4
 
