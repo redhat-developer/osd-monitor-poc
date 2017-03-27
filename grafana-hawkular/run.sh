@@ -11,6 +11,7 @@
 : "${GF_DATASOURCE_TENANT:=fillmein}"
 : "${GF_DATASOURCE_TOKEN:=fillmein}"
 : "${GF_DATASOURCE_TOKENPATH:=fillmein}"
+: "${PCP_DATASOURCE_URL:=fillmein}"
 
 # Launch pmcd side process
 ./run-pmcd.sh &
@@ -43,5 +44,9 @@ if [ -f ${GF_DATASOURCE_TOKENPATH} ]; then
 fi    
 
 /usr/bin/curl $server/api/datasources -s -X POST -H 'Content-Type: application/json;charset=utf-8' -d '{"name":"hawkular","type":"hawkular-datasource","url":"'${GF_DATASOURCE_URL}'","access":"proxy","jsonData":{"tenant":"'${GF_DATASOURCE_TENANT}'","token":"'${GF_DATASOURCE_TOKEN}'"},"secureJsonFields":{},"withCredentials":true,"isDefault":true}'
+
+echo registering pcp datasource
+
+/usr/bin/curl $server/api/datasources -s -X POST -H 'Content-Type: application/json;charset=utf-8' -d '{"name":"pcp","type":"graphite","url":"'${PCP_DATASOURCE_URL}'","access":"proxy"}'
 
 wait
