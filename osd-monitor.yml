@@ -1,0 +1,109 @@
+kind: Template
+apiVersion: v1
+metadata:
+  name: osd-monitor
+objects:
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    labels:
+      service: osd-monitor
+    name: osd-monitor
+  spec:
+    replicas: 1
+    selector:
+      service: osd-monitor
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        labels:
+          service: osd-monitor
+      spec:
+        serviceAccountName: osd-monitor
+        volumes:
+          - name: pcp-logs
+            persistentVolumeClaim:
+              claimName: osd-monitor-pcplogs
+        containers:
+        - env:
+          - name: GF_DATASOURCE_URL
+            value: https://hawkular-metrics.openshift-infra.svc.cluster.local/hawkular/metrics
+          - name: GF_DATASOURCE_TENANT
+            value: dsaas-preview
+          - name: GF_DATASOURCE_TOKENPATH
+            value: /var/run/secrets/kubernetes.io/serviceaccount/token
+          - name: GF_LOG_LEVEL
+            value: notice
+          - name: GF_ALERTING_EXECUTE_ALERTS
+            value: 'false'
+          - name: PCP_DATASOURCE_URL
+            value: http://localhost:44323/graphite
+          image: 'registry.devshift.net/perf/osd-monitor:latest'
+          name: osd-monitor
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+            - containerPort: 44321
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /login
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+        - image: 'registry.devshift.net/perf/pcp-central-logger:latest'
+          name: pcp-central-logger
+          volumeMounts:
+            - name: pcp-logs
+              mountPath: /var/log/pcp
+          resources: {}
+        - image: 'registry.devshift.net/perf/pcp-central-webapi:latest'
+          name: pcp-central-webapi
+          volumeMounts:
+            - name: pcp-logs
+              mountPath: /var/log/pcp
+          ports:
+            - containerPort: 44323
+              protocol: TCP
+          resources: {}
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - type: ConfigChange
+  status:
+    details:
+      causes:
+      - type: ConfigChange
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: osd-monitor
+    labels:
+      service: osd-monitor
+  spec:
+    ports:
+      - name: '3000'
+        protocol: TCP
+        port: 80
+        targetPort: 3000
+    selector:
+      service: osd-monitor
+    type: ClusterIP
+    sessionAffinity: None
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: osd-monitor
+  spec:
+    to:
+      kind: Service
+      name: osd-monitor
