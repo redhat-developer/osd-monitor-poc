@@ -7,10 +7,6 @@ RUN yum install -y pcp-manager pcp-system-tools && yum clean all
 # Install OSO binaries so we can kubectl
 RUN yum install -y centos-release-openshift-origin && yum install -y origin-clients && yum clean all
 
-# Denote this as a container environment, for rc scripts
-ENV PCP_CONTAINER_IMAGE pcp-central-logger
-ENV container docker
-
 COPY fix-permissions /usr/bin/fix-permissions
 COPY pmrep-zabbix.sh /pmrep-zabbix.sh
 

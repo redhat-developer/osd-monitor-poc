@@ -4,10 +4,6 @@ FROM centos:7
 COPY pcp.repo /etc/yum.repos.d/pcp.repo
 RUN yum install -y pcp && yum clean all
 
-# Denote this as a container environment, for rc scripts
-ENV PCP_CONTAINER_IMAGE pcp-node-collector
-ENV container docker
-
 COPY fix-permissions /usr/bin/fix-permissions
 COPY ./run-pmcd.sh /run-pmcd.sh
 RUN chmod +x /usr/bin/fix-permissions && \
