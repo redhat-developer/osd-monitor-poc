@@ -1,0 +1,1 @@
+-t 30 -c /etc/pcp/pmmgr-pod/config.pmlogger

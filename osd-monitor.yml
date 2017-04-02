@@ -63,6 +63,9 @@ objects:
             - name: pcp-logs
               mountPath: /var/log/pcp
           resources: {}
+          env:
+            - name: ZABBIX_SERVER
+              value: zabbix.devshift.net
         - image: 'registry.devshift.net/perf/pcp-central-webapi:latest'
           name: pcp-central-webapi
           volumeMounts:

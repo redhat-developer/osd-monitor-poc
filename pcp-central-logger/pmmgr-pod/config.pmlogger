@@ -1,0 +1,47 @@
+log advisory on default {
+	network.interface.in.bytes
+	network.interface.in.packets
+	network.interface.in.errors
+	network.interface.out.bytes
+	network.interface.out.packets
+	network.interface.out.errors
+	network.interface.collisions
+	filesys.full
+	proc.io.read_bytes
+	proc.io.write_bytes
+	proc.psinfo.utime
+	proc.psinfo.stime
+	proc.psinfo.cutime
+	proc.psinfo.cstime
+        proc.psinfo.rss
+        proc.psinfo.rss_rlim
+        proc.psinfo.vsize
+        proc.psinfo.maj_flt
+        proc.psinfo.threads
+        proc.nprocs
+        proc.fd.count
+        proc.runq
+}
+# infrequently changing, if at all, but worth recording for forensics
+log advisory on every 15 minutes {
+        proc.psinfo.psargs
+        proc.psinfo.environ
+}
+log advisory on once {
+        proc.psinfo.psargs
+        proc.psinfo.environ
+	hinv
+	kernel.uname
+	filesys.mountdir
+	filesys.blocksize
+	filesys.capacity
+	network.interface.mtu
+	network.interface.speed
+	network.interface.duplex
+	network.interface.inet_addr
+}
+
+[access]
+disallow .* : all;
+disallow :* : all;
+allow local:* : enquire;

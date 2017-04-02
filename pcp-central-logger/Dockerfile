@@ -12,23 +12,17 @@ ENV PCP_CONTAINER_IMAGE pcp-central-logger
 ENV container docker
 
 COPY fix-permissions /usr/bin/fix-permissions
-COPY run-pmmgr.sh ./run-pmmgr.sh 
+COPY pmrep-zabbix.sh /pmrep-zabbix.sh
+
+ADD pmmgr-node /etc/pcp/pmmgr-node
+ADD pmmgr-pod /etc/pcp/pmmgr-pod
 
 RUN chmod +x /usr/bin/fix-permissions && \
-    /usr/bin/fix-permissions /etc/pcp/pmrep && \
-    /usr/bin/fix-permissions /etc/pcp/pmmgr && \    
     /usr/bin/fix-permissions /var/log/pcp
-
-# would just touch the file, but want to suppress a silly kubectl warning
-# https://github.com/kubernetes/kubernetes/issues/31943
-RUN echo --show-all > /etc/pcp/pmmgr/target-kubectl-pod
 
 ENV MALLOC_ARENA_MAX 4
 
 ENV ZABBIX_SERVER    localhost
-ENV ZABBIX_PORT      10051
-ENV ZABBIX_HOST      pcp
-ENV ZABBIX_INTERVAL  1m
 
 VOLUME /var/log/pcp
-ENTRYPOINT ["/run-pmmgr.sh"]
+ENTRYPOINT ["/usr/libexec/pcp/bin/pmmgr", "-v", "-c", "/etc/pcp/pmmgr-node", "-c", "/etc/pcp/pmmgr-pod"]

@@ -1,0 +1,8 @@
+Log for pmlogger on very.elastic.org started Fri Mar 31 21:51:52 2017
+
+preprocessor cmd: /usr/libexec/pcp/bin/pmcpp -rs config.pmlogger -I /var/lib/pcp/config/pmlogger
+Config parsed
+Starting logger for host "very.elastic.org" via "local:"
+Archive basename: foo
+
+Log finished Fri Mar 31 21:51:57 2017
