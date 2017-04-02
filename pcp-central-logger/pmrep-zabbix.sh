@@ -8,7 +8,7 @@
 # We assume a $PCP_HOST env var is set as a hostspec (pcp -h $PCP_HOST).
 # We assume the $ZABBIX_SERVER env var is set.
 
-tmpfile=`mktemp`.conf
+tmpfile=`mktemp`
 trap 'rm -f $tmpfile; exit' 0 1 2 3 5 9 15
 
 if [ -z "$ZABBIX_SERVER" ]; then echo need ZABBIX_SERVER; exit 1; fi
@@ -23,5 +23,5 @@ echo zabbix_host = $pcp_hostname
 echo zabbix_interval = 60s
 ) > $tmpfile
 
-echo starting pmrep for $PCP_HOST to $ZABBIX_HOST
+echo starting pmrep for $PCP_HOST to $ZABBIX_SERVER
 pmrep -c $tmpfile -o zabbix $@
