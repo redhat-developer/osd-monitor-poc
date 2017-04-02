@@ -1,1 +1,1 @@
-/pmrep-zabbix.sh mem.util.available mem.util.free mem.util.used kernel.cpu.util.user kernel.cpu.util.sys kernel.cpu.util.user
+/pmrep-zabbix.sh mem.util.available mem.util.free mem.util.used kernel.cpu.util.user kernel.cpu.util.sys kernel.cpu.util.idle
