@@ -16,7 +16,7 @@ ADD pmmgr-pod /etc/pcp/pmmgr-pod
 RUN chmod +x /usr/bin/fix-permissions && \
     /usr/bin/fix-permissions /var/log/pcp
 
-ENV MALLOC_ARENA_MAX 4
+ENV MALLOC_ARENA_MAX 1
 
 ENV ZABBIX_SERVER    localhost
 
