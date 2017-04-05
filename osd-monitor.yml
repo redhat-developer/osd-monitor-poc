@@ -68,10 +68,10 @@ objects:
       service: osd-monitor
   spec:
     ports:
-      - name: '80'
+      - name: 'osd-monitor-webapi-guard'
         protocol: TCP
         port: 80
-        targetPort: 80
+        targetPort: 8000
     selector:
       service: osd-monitor
     type: ClusterIP
