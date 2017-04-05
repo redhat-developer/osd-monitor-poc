@@ -20,6 +20,8 @@ log advisory on default {
 	kernel.all.intr
 	kernel.all.load
 	kernel.all.runnable
+        kernel.all.running
+        kernel.all.blocked
 	network.interface.collisions
 	network.interface.in.drops
 	network.interface.out.drops
