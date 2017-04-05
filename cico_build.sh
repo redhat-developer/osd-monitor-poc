@@ -25,4 +25,9 @@ service docker start
     docker build -t registry.devshift.net/perf/pcp-central-webapi:latest . 
     docker push registry.devshift.net/perf/pcp-central-webapi:latest
 )
+(
+    cd webapi-guard
+    docker build -t registry.devshift.net/perf/webapi-guard:latest . 
+    docker push registry.devshift.net/perf/webapi-guard:latest
+)
 
