@@ -2,18 +2,21 @@ FROM centos:7
 
 # Install pcp - collection basics
 COPY pcp.repo /etc/yum.repos.d/pcp.repo
-RUN yum install -y pcp-manager pcp-system-tools && yum clean all
+RUN yum install -y pcp pcp-manager pcp-system-tools && yum clean all
 
 # Install OSO binaries so we can kubectl
 RUN yum install -y centos-release-openshift-origin && yum install -y origin-clients && yum clean all
 
 COPY fix-permissions /usr/bin/fix-permissions
 COPY pmrep-zabbix.sh /pmrep-zabbix.sh
+COPY pmmgr+pmcd.sh   /pmmgr+pmcd.sh
 
 ADD pmmgr-node /etc/pcp/pmmgr-node
 ADD pmmgr-pod /etc/pcp/pmmgr-pod
 
 RUN chmod +x /usr/bin/fix-permissions && \
+    /usr/bin/fix-permissions /etc/pcp && \
+    /usr/bin/fix-permissions /var/lib/pcp && \  
     /usr/bin/fix-permissions /var/log/pcp
 
 ENV MALLOC_ARENA_MAX 1
@@ -21,4 +24,4 @@ ENV MALLOC_ARENA_MAX 1
 ENV ZABBIX_SERVER    localhost
 
 VOLUME /var/log/pcp
-ENTRYPOINT ["/usr/libexec/pcp/bin/pmmgr", "-v", "-c", "/etc/pcp/pmmgr-node", "-c", "/etc/pcp/pmmgr-pod"]
+ENTRYPOINT [ "/bin/sh", "/pmmgr+pmcd.sh" ]
