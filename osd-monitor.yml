@@ -47,7 +47,7 @@ objects:
         - image: 'registry.devshift.net/perf/webapi-guard:latest'
           name: webapi-guard
           ports:
-            - containerPort: 80
+            - containerPort: 8000
               protocol: TCP
         dnsPolicy: ClusterFirst
         restartPolicy: Always
@@ -84,3 +84,6 @@ objects:
     to:
       kind: Service
       name: osd-monitor
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Redirect
