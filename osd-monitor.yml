@@ -46,6 +46,9 @@ objects:
           resources: {}
         - image: 'registry.devshift.net/perf/webapi-guard:latest'
           name: webapi-guard
+          volumeMounts:
+            - name: pcp-logs
+              mountPath: /var/log/pcp
           ports:
             - containerPort: 8000
               protocol: TCP
