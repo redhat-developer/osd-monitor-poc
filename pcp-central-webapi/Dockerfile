@@ -2,7 +2,7 @@ FROM centos:7
 
 # Install pcp - collection basics
 COPY pcp.repo /etc/yum.repos.d/pcp.repo
-RUN yum install -y pcp-webapi 'pcp-webapp-*' && yum clean all
+RUN yum install -y pcp-webapi pcp-webapps && yum clean all
 
 # XXXX also need httpd proxy oauth thingie
 
