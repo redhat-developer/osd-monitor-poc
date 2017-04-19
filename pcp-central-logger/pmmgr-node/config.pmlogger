@@ -52,7 +52,7 @@ log advisory on once {
 	network.interface.duplex
 	network.interface.inet_addr
 }
-log advisory on default {
+log advisory on every 2 minutes {
 	disk.dev.read
 	disk.dev.write
 	disk.dev.blkread
@@ -67,6 +67,8 @@ log advisory on default {
 	disk.md.write
 	disk.md.blkread
 	disk.md.blkwrite
+}
+log advisory on default {
 	kernel.all.pswitch
 	kernel.all.intr
 	kernel.all.sysfork
