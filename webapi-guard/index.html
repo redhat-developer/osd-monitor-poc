@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+    <meta http-equiv="refresh" content="60">
+    <title>OSD monitoring with Performance Co-Pilot</title>
+
+    <script>
+      /* These routines adjust the vector invocation url so that the
+      dashboard is ready to run, connecting to the same pmwebd where
+      its static assets were downloaded from. */
+      function vectorize (id) {
+      var server = location.hostname + ":" + location.port;
+      document.getElementById(id).setAttribute("href",
+         "vector/index.html#?host=" + encodeURIComponent(server));
+      }
+    </script>
+  </head>
+  <body onload="vectorize('vectorurl1');">
+    <h2>OSIO customized dashboards</h2>
+    <h3>NODES</h3>
+    <ul>
+      <li><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=NODE*.kernel.all.load.1%20minute&target=NODE*.kernel.all.running,NODE*.kernel.all.blocked&target=NODE*.network.interface.in.bytes.*,NODE*.network.interface.out.bytes.*&target=NODE*.disk.dev.read_bytes.*,NODE*.disk.dev.write_bytes.*&target=NODE*.mem.util.available,NODE*.mem.util.used&target=NODE*.filesys.full.*&name=all%20nodes">
+          6hr load avg <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=NODE*.kernel.all.load.1%20minute&width=100&height=40&graphOnly=true"></li>
+    </ul>
+    </a>
+    <h3>KEYCLOAK</h3>
+    <ul>
+      <li>
+        <a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=keycloak-server-*.filesys.full.*&target=keycloak-server-*.proc.io.*_bytes.*&target=keycloak-server-*.proc.fd.count.*,keycloak-server-*.proc.psinfo.threads.*&target=keycloak-server-*.proc.psinfo.rss.*,keycloak-server-*.proc.psinfo.vsize.*&target=keycloak-server-*.proc.psinfo.*time.*">
+          6hr filesystem full <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.filesys.full.*&width=100&height=40&graphOnly=true">
+          process i/o <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true">
+          fd/thread count <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.fd.count.*&target=keycloak-server-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true">
+          rss/vsz  <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.psinfo.rss.*&target=keycloak-server-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true">
+          utime/stime <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.psinfo.*time.*&width=100&height=40&graphOnly=true">
+        </a>
+      </li>
+    </ul>
+    <h3>CORE</h3>
+    <ul>
+      <li>
+        <a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=CORE-*.filesys.full.*&target=CORE-*.proc.io.*_bytes.*&target=CORE-*.proc.fd.count.*,CORE-*.proc.psinfo.threads.*&target=CORE-*.proc.psinfo.rss.*,CORE-*.proc.psinfo.vsize.*&target=CORE-*.proc.psinfo.*time.*">
+          6hr filesystem full <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=CORE-*.filesys.full.*&width=100&height=40&graphOnly=true">
+          process i/o <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=CORE-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true">
+          fd/thread count <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=CORE-*.proc.fd.count.*&target=CORE-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true">
+          rss/vsz  <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=CORE-*.proc.psinfo.rss.*&target=CORE-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true">
+          utime/stime <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=CORE-*.proc.psinfo.*time.*&width=100&height=40&graphOnly=true">
+        </a>
+      </li>
+    </ul>
+    <h3>OSD-MONITOR</h3>
+    <ul>
+      <li>
+        <a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=osd-monitor-*.filesys.full.*&target=osd-monitor-*.proc.io.*_bytes.*&target=osd-monitor-*.proc.fd.count.*,osd-monitor-*.proc.psinfo.threads.*&target=osd-monitor-*.proc.psinfo.rss.*,osd-monitor-*.proc.psinfo.vsize.*&target=osd-monitor-*.proc.psinfo.*time.*">
+          6hr filesystem full <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.filesys.full.*&width=100&height=40&graphOnly=true">
+          process i/o <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true">
+          fd/thread count <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.fd.count.*&target=osd-monitor-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true">
+          rss/vsz  <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.psinfo.rss.*&target=osd-monitor-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true">
+          utime/stime <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.psinfo.*time.*&width=100&height=40&graphOnly=true">
+        </a>
+      </li>
+    </ul>
+    <h2>Generic PCP webapps</h2>
+    <ul>
+      <li><a id="vectorurl1" href="vector/">Vector</a> for a live view of some metrics of a single node.</li>
+      <li><a href="graphite/index.html">Graphite</a> to browse the archived metrics for all the hosts,
+        so as to build PNG image URLs that contain time series visualizations.</li>
+      <li>Grafana <a href="grafana/index.html#/dashboard/script/hostselect.js">host-list</a> |
+        <a href="grafana/index.html#/dashboard/file/default.json">flot.js</a> |
+        <a href="grafana/index.html#/dashboard/file/default-png.json">png</a> for a more interactive
+        set of generic dashboards.</li>
+    </ul>
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="/archives/">PCP archives</a> for downloading and local processing</li>
+      <li><a href="https://github.com:redhat-developer/osd-monitor-poc.git/">osd-monitor github repo</a></li>
+      <li>PCP configuration for <a href="https://github.com/redhat-developer/osd-monitor-poc/blob/master/pcp-central-logger/pmmgr-pod/config.pmlogger">pod logging</a> and 
+        <a href="https://github.com/redhat-developer/osd-monitor-poc/blob/master/pcp-central-logger/pmmgr-node/config.pmlogger">node logging</a></li>
+      <li>The <a href="https://github.com/redhat-developer/osd-monitor-poc/blob/master/webapi-guard/index.html">source</a> for this <tt>index.html</tt> file.</li>
+    </ul>
+  </body>
+</html>
+
+<!--
+    <h3>PODNAME</h3>
+    <ul>
+      <li>
+        <a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=PODNAME-*.filesys.full.*&target=PODNAME-*.proc.io.*_bytes.*&target=PODNAME-*.proc.fd.count.*,PODNAME-*.proc.psinfo.threads.*&target=PODNAME-*.proc.psinfo.rss.*,PODNAME-*.proc.psinfo.vsize.*&target=PODNAME-*.proc.psinfo.*time.*">
+          6hr filesystem full <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.filesys.full.*&width=100&height=40&graphOnly=true">
+          process i/o <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true">
+          fd/thread count <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.fd.count.*&target=PODNAME-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true">
+          rss/vsz  <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.psinfo.rss.*&target=PODNAME-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true">
+          utime/stime <img style="border:3px solid black" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.psinfo.*time.*&width=100&height=40&graphOnly=true">
+        </a>
+      </li>
+    </ul>
+-->

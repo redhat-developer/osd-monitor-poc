@@ -10,6 +10,8 @@ COPY pmwebd_guard.conf /etc/httpd/conf.d/pmwebd_guard.conf
 COPY pmwebd_guard.htpasswd /etc/httpd/conf/pmwebd_guard.htpasswd
 RUN chmod a+rwX /run/httpd
 
+COPY index.html /var/www/html
+
 VOLUME /var/log/pcp
 
 STOPSIGNAL SIGWINCH
