@@ -26,7 +26,7 @@ objects:
             persistentVolumeClaim:
               claimName: osd-monitor-pcplogs
         containers:
-        - image: 'registry.devshift.net/perf/pcp-central-logger:latest'
+        - image: 'registry.devshift.net/perf/pcp-central-logger:${IMAGE_TAG}'
           name: pcp-central-logger
           volumeMounts:
             - name: pcp-logs
@@ -35,7 +35,7 @@ objects:
           env:
             - name: ZABBIX_SERVER
               value: zabbix.devshift.net
-        - image: 'registry.devshift.net/perf/pcp-central-webapi:latest'
+        - image: 'registry.devshift.net/perf/pcp-central-webapi:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
             - name: pcp-logs
@@ -44,7 +44,7 @@ objects:
             - containerPort: 44323
               protocol: TCP
           resources: {}
-        - image: 'registry.devshift.net/perf/webapi-guard:latest'
+        - image: 'registry.devshift.net/perf/webapi-guard:${IMAGE_TAG}'
           name: webapi-guard
           volumeMounts:
             - name: pcp-logs
@@ -90,3 +90,6 @@ objects:
     tls:
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
+parameters:
+- name: IMAGE_TAG
+  value: latest
