@@ -8,9 +8,8 @@
       td img { display: block; margin: auto; }
       table { border-collapse: collapse; table-layout:fixed; }
       table, th, td { border: 1px solid grey; }
-      td, th { width: 120px; }
+      td, th { width: 110px; }
       th { font-weight: normal; }
-      td:nth-child(even) { background-color: #f2f2f2; }
     </style>
     
     <script>
@@ -29,7 +28,7 @@
     <h3>NODES</h3>
     <ul>
       <li><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=NODE*.kernel.all.load.1%20minute&target=NODE*.kernel.all.running,NODE*.kernel.all.blocked&target=NODE*.disk.dev.read_bytes.*,NODE*.disk.dev.write_bytes.*&target=NODE*.mem.util.available,NODE*.mem.util.used&target=NODE*.filesys.full.*&name=all%20nodes">
-          6hr load avg <img class="pcp" src="/graphite/render/?from=-6h&until=now&target=NODE*.kernel.all.load.1%20minute&width=100&height=40&graphOnly=true"></li>
+          6hr load avg <img class="pcp" src="/graphite/render/?from=-6h&until=now&target=NODE*.kernel.all.load.1%20minute&width=100&height=40&graphOnly=true&lineWidth=0.7"></li>
     </ul>
     </a>
     <h3>APPS</h3>
@@ -45,36 +44,36 @@
       <!--
       <tr>
         <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=PODNAME-*.filesys.full.*&target=PODNAME-*.proc.io.*_bytes.*&target=PODNAME-*.proc.fd.count.*,PODNAME-*.proc.psinfo.threads.*&target=PODNAME-*.proc.psinfo.rss.*,PODNAME-*.proc.psinfo.vsize.*&target=PODNAME-*.proc.psinfo.?time.*">PODNAME-*</a></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.filesys.full.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.fd.count.*&target=PODNAME-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.psinfo.rss.*&target=PODNAME-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.psinfo.?time.*&width=100&height=40&graphOnly=true"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.filesys.full.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.fd.count.*&target=PODNAME-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.psinfo.rss.*&target=PODNAME-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=PODNAME-*.proc.psinfo.?time.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
       </tr>
       -->
       <tr>
         <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=keycloak-server-*.filesys.full.*&target=keycloak-server-*.proc.io.*_bytes.*&target=keycloak-server-*.proc.fd.count.*,keycloak-server-*.proc.psinfo.threads.*&target=keycloak-server-*.proc.psinfo.rss.*,keycloak-server-*.proc.psinfo.vsize.*&target=keycloak-server-*.proc.psinfo.?time.*">keycloak-server-*</a></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.filesys.full.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.fd.count.*&target=keycloak-server-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.psinfo.rss.*&target=keycloak-server-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.psinfo.?time.*&width=100&height=40&graphOnly=true"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.filesys.full.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.fd.count.*&target=keycloak-server-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.psinfo.rss.*&target=keycloak-server-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=keycloak-server-*.proc.psinfo.?time.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
       </tr>
       <tr>
         <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=core-*.filesys.full.*&target=core-*.proc.io.*_bytes.*&target=core-*.proc.fd.count.*,core-*.proc.psinfo.threads.*&target=core-*.proc.psinfo.rss.*,core-*.proc.psinfo.vsize.*&target=core-*.proc.psinfo.?time.*">core-*</a></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.filesys.full.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.proc.fd.count.*&target=core-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.proc.psinfo.rss.*&target=core-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.proc.psinfo.?time.*&width=100&height=40&graphOnly=true"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.filesys.full.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.proc.fd.count.*&target=core-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.proc.psinfo.rss.*&target=core-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=core-*.proc.psinfo.?time.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
       </tr>
       <tr>
         <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&target=osd-monitor-*.filesys.full.*&target=osd-monitor-*.proc.io.*_bytes.*&target=osd-monitor-*.proc.fd.count.*,osd-monitor-*.proc.psinfo.threads.*&target=osd-monitor-*.proc.psinfo.rss.*,osd-monitor-*.proc.psinfo.vsize.*&target=osd-monitor-*.proc.psinfo.?time.*">osd-monitor-*</a></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.filesys.full.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.fd.count.*&target=osd-monitor-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.psinfo.rss.*&target=osd-monitor-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true"></td>
-        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.psinfo.?time.*&width=100&height=40&graphOnly=true"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.filesys.full.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.io.*_bytes.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.fd.count.*&target=osd-monitor-*.proc.psinfo.threads.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.psinfo.rss.*&target=osd-monitor-*.proc.psinfo.vsize.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
+        <td><img class="pcp" src="/graphite/render/?from=-6h&until=now&target=osd-monitor-*.proc.psinfo.?time.*&width=100&height=40&graphOnly=true&lineWidth=0.7"></td>
       </tr>
     </table>
     <h2>Generic PCP webapps</h2>
