@@ -82,15 +82,6 @@ log advisory on default {
 	kernel.all.cpu.irq.soft
 	kernel.all.cpu.steal
 	kernel.all.cpu.guest
-	kernel.percpu.cpu.sys
-	kernel.percpu.cpu.user
-	kernel.percpu.cpu.nice
-	kernel.percpu.cpu.idle
-	kernel.percpu.cpu.wait.total
-	kernel.percpu.cpu.irq.hard
-	kernel.percpu.cpu.irq.soft
-	kernel.percpu.cpu.steal
-	kernel.percpu.cpu.guest
 	hinv.cpu.clock
 	mem.vmstat.pgscan_direct_dma
 	mem.vmstat.pgscan_direct_dma32
