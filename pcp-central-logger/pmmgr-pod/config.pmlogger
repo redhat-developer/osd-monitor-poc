@@ -31,7 +31,6 @@ log advisory on once {
         proc.psinfo.psargs
         proc.psinfo.environ
 	hinv
-	kernel.uname
 	filesys.mountdir
 	filesys.blocksize
 	filesys.capacity
