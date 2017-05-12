@@ -32,4 +32,4 @@ exec /usr/libexec/pcp/bin/pmcd -l /dev/no-such-file -f -A -H $PCP_HOSTNAME
 ) &
 sleep 5 # give time for pmcd's startup messages, so it doesn't intermix with pmmgr's
 
-exec /usr/libexec/pcp/bin/pmmgr -v -c /etc/pcp/pmmgr-node -c /etc/pcp/pmmgr-pod
+exec /usr/libexec/pcp/bin/pmmgr -v -p 180 -c /etc/pcp/pmmgr-node -c /etc/pcp/pmmgr-pod
