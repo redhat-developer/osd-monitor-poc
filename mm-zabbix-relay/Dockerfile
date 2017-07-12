@@ -17,6 +17,7 @@ RUN chmod +x /usr/bin/fix-permissions && \
 ENV MALLOC_ARENA_MAX 1
 ENV ZABBIX_SERVER localhost
 ENV ZABBIX_HOSTNAME localhost
+ENV PCP_METRICS "cgroup.memory.usage network.interface.in.bytes network.interface.out.bytes cgroup.cpuacct.usage"
 
 VOLUME /var/log/pcp
 ENTRYPOINT [ "/usr/libexec/pcp/bin/pmmgr", "-c", "/etc/pcp/pmmgr-mm", "-v" ]
