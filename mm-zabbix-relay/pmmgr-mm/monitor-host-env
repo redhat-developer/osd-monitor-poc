@@ -1,0 +1,1 @@
+/pmrep-zabbix.sh -t 60 cgroup.memory.usage network.interface.in.bytes network.interface.out.bytes cgroup.cpuacct.usage
