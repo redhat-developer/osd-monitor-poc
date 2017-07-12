@@ -39,4 +39,7 @@ TAG=$(echo $GIT_COMMIT | cut -c1-6)
     cd webapi-guard
     build_push  registry.devshift.net/perf/webapi-guard ${TAG}
 )
-
+(
+    cd mm-zabbix-relay
+    build_push  registry.devshift.net/perf/mm-zabbix-relay ${TAG}
+)
