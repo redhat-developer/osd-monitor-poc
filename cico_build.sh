@@ -20,10 +20,6 @@ service docker start
 TAG=$(echo $GIT_COMMIT | cut -c1-6)
 
 (
-    cd grafana-hawkular
-    build_push registry.devshift.net/perf/osd-monitor ${TAG}
-)
-(
     cd pcp-node-collector
     build_push registry.devshift.net/perf/pcp-node-collector ${TAG}
 )
