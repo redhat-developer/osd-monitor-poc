@@ -15,27 +15,34 @@ function build_push() {
 yum -y install docker 
 service docker start
 
-[ -f jenkins-env ] && cat jenkins-env | grep -e GIT > inherit-env
+[ -f jenkins-env ] && cat jenkins-env | grep -e GIT -e DEVSHIFT > inherit-env
 [ -f inherit-env ] && . inherit-env
 TAG=$(echo $GIT_COMMIT | cut -c1-6)
+REGISTRY="push.registry.devshift.net"
+
+if [ -n "${DEVSHIFT_USERNAME}" -a -n "${DEVSHIFT_PASSWORD}" ]; then
+    docker login -u ${DEVSHIFT_USERNAME} -p ${DEVSHIFT_PASSWORD} ${REGISTRY}
+else
+    echo "Could not login, missing credentials for the registry"
+fi
 
 (
     cd pcp-node-collector
-    build_push registry.devshift.net/perf/pcp-node-collector ${TAG}
+    build_push ${REGISTRY}/perf/pcp-node-collector ${TAG}
 )
 (
     cd pcp-central-logger
-    build_push  registry.devshift.net/perf/pcp-central-logger ${TAG}
+    build_push  ${REGISTRY}/perf/pcp-central-logger ${TAG}
 )
 (
     cd pcp-central-webapi
-    build_push  registry.devshift.net/perf/pcp-central-webapi ${TAG}
+    build_push  ${REGISTRY}/perf/pcp-central-webapi ${TAG}
 )
 (
     cd webapi-guard
-    build_push  registry.devshift.net/perf/webapi-guard ${TAG}
+    build_push  ${REGISTRY}/perf/webapi-guard ${TAG}
 )
 (
     cd mm-zabbix-relay
-    build_push  registry.devshift.net/perf/mm-zabbix-relay ${TAG}
+    build_push  ${REGISTRY}/perf/mm-zabbix-relay ${TAG}
 )
