@@ -17,7 +17,7 @@ service docker start
 
 [ -f jenkins-env ] && cat jenkins-env | grep -e GIT -e DEVSHIFT > inherit-env
 [ -f inherit-env ] && . inherit-env
-TAG=$(echo $GIT_COMMIT | cut -c1-6)
+TAG=$(echo $GIT_COMMIT | cut -c1-${DEVSHIFT_TAG_LEN})
 REGISTRY="push.registry.devshift.net"
 
 if [ -n "${DEVSHIFT_USERNAME}" -a -n "${DEVSHIFT_PASSWORD}" ]; then
