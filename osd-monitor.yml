@@ -43,6 +43,16 @@ objects:
           ports:
             - containerPort: 44323
               protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: 44323
+            initiaDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 44323
+            initiaDelaySeconds: 5
+            periodSeconds: 10
           resources: {}
         - image: 'registry.devshift.net/perf/webapi-guard:${IMAGE_TAG}'
           name: webapi-guard
@@ -52,6 +62,17 @@ objects:
           ports:
             - containerPort: 8000
               protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: 8000
+            initiaDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 8000
+            initiaDelaySeconds: 5
+            periodSeconds: 10
+ 
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}
