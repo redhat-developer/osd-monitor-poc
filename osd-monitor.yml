@@ -43,6 +43,18 @@ objects:
           ports:
             - containerPort: 44323
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /pmapi/1/metrics?target=kernel.all.load
+              port: 44323
+            initiaDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /pmapi/1/metrics?target=kernel.all.load
+              port: 44323
+            initiaDelaySeconds: 30
+            periodSeconds: 10
           resources: {}
         - image: 'registry.devshift.net/perf/webapi-guard:${IMAGE_TAG}'
           name: webapi-guard
@@ -52,6 +64,19 @@ objects:
           ports:
             - containerPort: 8000
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: 8000
+            initiaDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /index.html
+              port: 8000
+            initiaDelaySeconds: 30
+            periodSeconds: 10
+
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}
