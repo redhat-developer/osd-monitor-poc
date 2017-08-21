@@ -48,14 +48,16 @@ objects:
               path: /pmapi/1/metrics?target=kernel.all.load
               port: 44323
             initiaDelaySeconds: 30
-            periodSeconds: 10
+            periodSeconds: 60
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /pmapi/1/metrics?target=kernel.all.load
               port: 44323
             initiaDelaySeconds: 30
-            periodSeconds: 10
-          resources: {}
+            periodSeconds: 60
+            timeoutSeconds: 5
+            resources: {}
         - image: 'registry.devshift.net/perf/webapi-guard:${IMAGE_TAG}'
           name: webapi-guard
           volumeMounts:
@@ -69,14 +71,15 @@ objects:
               path: /index.html
               port: 8000
             initiaDelaySeconds: 30
-            periodSeconds: 10
+            periodSeconds: 60
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /index.html
               port: 8000
             initiaDelaySeconds: 30
-            periodSeconds: 10
-
+            periodSeconds: 60
+            timeoutSeconds: 5
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}
