@@ -2,7 +2,7 @@ FROM centos:7
 
 # Install pcp - collection basics
 COPY pcp.repo /etc/yum.repos.d/pcp.repo
-RUN yum install -y pcp pcp-manager pcp-system-tools && yum clean all
+RUN yum install -y pcp pcp-manager pcp-debuginfo valgrind pcp-system-tools && yum clean all
 
 # Install OSO binaries so we can kubectl
 RUN yum install -y centos-release-openshift-origin && yum install -y origin-clients && yum clean all
@@ -20,8 +20,10 @@ RUN chmod +x /usr/bin/fix-permissions && \
     /usr/bin/fix-permissions /var/log/pcp
 
 ENV MALLOC_ARENA_MAX 1
-
 ENV ZABBIX_SERVER    localhost
+
+ENV VALGRIND ""
+# ENV VALGRIND /usr/bin/valgrind
 
 VOLUME /var/log/pcp
 ENTRYPOINT [ "/bin/sh", "/pmmgr+pmcd.sh" ]

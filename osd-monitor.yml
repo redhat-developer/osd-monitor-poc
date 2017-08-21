@@ -35,6 +35,8 @@ objects:
           env:
             - name: ZABBIX_SERVER
               value: zabbix.devshift.net
+            - name: VALGRIND
+              value: ~
         - image: 'registry.devshift.net/perf/pcp-central-webapi:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
