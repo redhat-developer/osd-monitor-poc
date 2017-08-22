@@ -21,11 +21,15 @@ log advisory on default {
         proc.nprocs
         proc.fd.count
         proc.runq
+	cgroup.cpuacct.stat
+	cgroup.memory.usage
+	cgroup.memory.stat
+	cgroup.blkio.all.throttle.io_service_bytes
 }
 # infrequently changing, if at all, but worth recording for forensics
 log advisory on every 15 minutes {
         proc.psinfo.psargs
-        proc.psinfo.environ
+       # proc.psinfo.environ # huge
 }
 log advisory on once {
         proc.psinfo.psargs
