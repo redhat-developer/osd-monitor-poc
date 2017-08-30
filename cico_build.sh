@@ -26,23 +26,13 @@ else
     echo "Could not login, missing credentials for the registry"
 fi
 
-(
-    cd pcp-node-collector
-    build_push ${REGISTRY}/perf/pcp-node-collector ${TAG}
-)
-(
-    cd pcp-central-logger
-    build_push  ${REGISTRY}/perf/pcp-central-logger ${TAG}
-)
-(
-    cd pcp-central-webapi
-    build_push  ${REGISTRY}/perf/pcp-central-webapi ${TAG}
-)
-(
-    cd webapi-guard
-    build_push  ${REGISTRY}/perf/webapi-guard ${TAG}
-)
-(
-    cd mm-zabbix-relay
-    build_push  ${REGISTRY}/perf/mm-zabbix-relay ${TAG}
-)
+for subdir in pcp-node-collector \
+                  pcp-central-logger \
+                  pcp-central-webapi \
+                  webapi-guard \
+                  mm-zabbix-relay \
+                  oso-pcp-prometheus \
+                  oso-webapi-guard
+do
+    (cd $subdir; build_push ${REGISTRY}/perf/$subdir ${TAG})
+done
