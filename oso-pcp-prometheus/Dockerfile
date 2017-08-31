@@ -6,8 +6,5 @@ RUN yum install -y pcp-webapi && yum clean all
 
 # Expose pmwebd's main port on the host interface
 EXPOSE 44323
-
-ENV PMCD localhost
 ENV MALLOC_ARENA_MAX 1
-
-ENTRYPOINT ["/usr/libexec/pcp/bin/pmwebd", "-v", "-v", "-h", "${PMCD}"]
+ENTRYPOINT ["/usr/libexec/pcp/bin/pmwebd", "-v", "-v", "-h", "localhost"]
