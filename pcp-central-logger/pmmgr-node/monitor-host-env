@@ -1,1 +1,1 @@
-/pmrep-zabbix.sh -t 60 mem.util.available mem.util.free mem.util.used kernel.cpu.util.user kernel.cpu.util.sys kernel.cpu.util.idle kernel.cpu.util.nice kernel.cpu.util.intr kernel.cpu.util.wait kernel.cpu.util.steal kernel.all.uptime
+pcp2zabbix -g $ZABBIX_SERVER -E 60 -t 60 mem.util.available mem.util.free mem.util.used kernel.cpu.util.user kernel.cpu.util.sys kernel.cpu.util.idle kernel.cpu.util.nice kernel.cpu.util.intr kernel.cpu.util.wait kernel.cpu.util.steal kernel.all.uptime
