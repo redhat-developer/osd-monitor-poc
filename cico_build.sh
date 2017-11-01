@@ -29,7 +29,7 @@ fi
 for subdir in pcp-node-collector \
                   pcp-central-logger \
                   pcp-central-webapi \
-                  webapi-guard \
+                  pcp-webapi-guard \
                   mm-zabbix-relay \
                   oso-pcp-prometheus \
                   oso-webapi-guard

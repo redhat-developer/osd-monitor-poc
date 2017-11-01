@@ -60,8 +60,8 @@ objects:
             periodSeconds: 60
             timeoutSeconds: 5
             resources: {}
-        - image: 'registry.devshift.net/perf/webapi-guard:${IMAGE_TAG}'
-          name: webapi-guard
+        - image: 'registry.devshift.net/perf/pcp-webapi-guard:${IMAGE_TAG}'
+          name: pcp-webapi-guard
           volumeMounts:
             - name: pcp-logs
               mountPath: /var/log/pcp
