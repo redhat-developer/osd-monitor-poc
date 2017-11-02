@@ -3,15 +3,22 @@
 # start two processes: a background shell script fragment that
 # periodically fetches a given URL for authentication data
 
-REFRESH=14400
-URL=${HTPASSWD_URL}
+REFRESH0=30
+REFRESH=3600 # re-fetch
+
+URL=${OSIO_ACL_SERVER}/tenant-auth/htpasswd.${OSIO_NAMESPACE}  # as per oso-central-webapi-guard & oso-central-logger
 HTPASSWD=/etc/httpd/conf/pmwebd_guard.htpasswd
 
+echo "Fetching $URL to $HTPASSWD"
 if [ -n "$URL" ]; then
-   curl "$URL" -o /tmp/file.$$ && mv /tmp/file.$$ "$HTPASSWD" || exit 1
+   curl "$URL" -o /tmp/file.$$ && mv /tmp/file.$$ "$HTPASSWD"
    (while true; do
-        sleep $REFRESH
         curl "$URL" -o /tmp/file.$$ && mv /tmp/file.$$ "$HTPASSWD"
+        if [ -f "$HTPASSWD" ]; then
+            sleep $REFRESH
+        else
+            sleep $REFRESH0 # no file yet, sleep less
+        fi
     done) &
    p1=$!
 fi

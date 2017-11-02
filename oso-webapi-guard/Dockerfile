@@ -9,16 +9,17 @@ EXPOSE 8001
 COPY pmwebd_guard.conf /etc/httpd/conf.d/pmwebd_guard.conf
 
 # the htpasswd file may be periodically replaced during run
-COPY pmwebd_guard.htpasswd /etc/httpd/conf/pmwebd_guard.htpasswd
+RUN touch                  /etc/httpd/conf/pmwebd_guard.htpasswd
 RUN chmod a+rwX            /etc/httpd/conf/pmwebd_guard.htpasswd
 
 RUN chmod a+rwX /run/httpd
 
-COPY pmwebd_start.sh /pmwebd_start.sh
+COPY webapi_guard_start.sh /webapi_guard_start.sh
 
 # where to fetch htpasswd updates from
-ENV HTPASSWD_URL ""
+ENV OSIO_NAMESPACE ""
+ENV OSIO_ACL_SERVER ""
 
 STOPSIGNAL SIGWINCH
 
-ENTRYPOINT ["/bin/sh", "/pmwebd_start.sh"]
+ENTRYPOINT ["/bin/sh", "/webapi_guard_start.sh"]

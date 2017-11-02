@@ -32,7 +32,9 @@ for subdir in pcp-node-collector \
                   pcp-webapi-guard \
                   mm-zabbix-relay \
                   oso-pcp-prometheus \
-                  oso-webapi-guard
+                  oso-webapi-guard \
+                  oso-central-logger \
+                  oso-central-webapi-guard
 do
     (cd $subdir; build_push ${REGISTRY}/perf/$subdir ${TAG})
 done

@@ -1,0 +1,8 @@
+log advisory on default {
+    prometheus
+}
+
+[access]
+disallow .* : all;
+disallow :* : all;
+allow local:* : enquire;

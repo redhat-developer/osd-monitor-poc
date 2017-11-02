@@ -1,0 +1,25 @@
+FROM centos:7
+
+# Install pcp - collection basics
+COPY pcp.repo /etc/yum.repos.d/pcp.repo
+RUN yum install -y pcp pcp-manager pcp-debuginfo pcp-export-pcp2zabbix valgrind pcp-system-tools pcp-pmda-prometheus && yum clean all
+
+COPY fix-permissions /usr/bin/fix-permissions
+COPY pmmgr+pmcd.sh   /pmmgr+pmcd.sh
+
+ADD pmmgr-tenants /etc/pcp/pmmgr-tenants
+
+RUN chmod +x /usr/bin/fix-permissions && \
+    /usr/bin/fix-permissions /etc/pcp && \
+    /usr/bin/fix-permissions /var/lib/pcp && \
+    /usr/bin/fix-permissions /var/log/pcp
+
+ENV MALLOC_ARENA_MAX 1
+ENV ZABBIX_SERVER    localhost
+
+ENV VALGRIND ""
+
+# ENV VALGRIND /usr/bin/valgrind
+
+VOLUME /var/log/pcp
+ENTRYPOINT [ "/bin/sh", "/pmmgr+pmcd.sh" ]
