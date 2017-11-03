@@ -148,13 +148,16 @@ objects:
             - name: pcp-logs
               mountPath: /var/log/pcp
           resources: {}
+          ports:
+            - containerPort: 44323
+              protocol: TCP
         - image: 'registry.devshift.net/perf/oso-central-webapi-guard:${IMAGE_TAG}'
           name: oso-central-webapi-guard
           volumeMounts:
             - name: pcp-logs
               mountPath: /var/log/pcp
           ports:
-            - containerPort: 44323
+            - containerPort: 8001
               protocol: TCP
         dnsPolicy: ClusterFirst
         restartPolicy: Always
