@@ -52,14 +52,15 @@ create_url()
     tenant="$1"
     password="$2"
     project="$3"
-    metrics_url="$4"
+    metrics_prefix="$4"
+    metrics_url="$5"
 
     namespace="$tenant$project"
 
     # NB: url policy right here
     # NB: metric naming policy right here
     url="https://$tenant:$password@pcp-$namespace.$oso_url_suffix$metrics_url"
-    urlfile="$pmdaprometheus_dir/`echo $namespace.$metrics_url | tr _/- .`.url"
+    urlfile="$pmdaprometheus_dir/`echo $namespace.$metrics_prefix | tr _/- .`.url"
 
     echo "$url" > "$urlfile"
     echo "$urlfile" "$url"
@@ -99,8 +100,8 @@ for tenant in `cat $tenant_list`; do
     tenant_urlbase=$pmdaprometheus_dir/$tenant
     
     # XXX: osio architecture: the set of exported urls for each namespace of a tenant
-    create_url "$tenant" "$password" "-che" "/pcp/pmapi/1/metrics?target=kernel"
-    create_url "$tenant" "$password" "-jenkins" "/prom9180"
+    create_url "$tenant" "$password" "-che" "server" "/pcp/pmapi/1/metrics?target=kernel"
+    create_url "$tenant" "$password" "-jenkins" "contentserver" "/prom9180"
     
     create_htpasswd "$tenant" "$password" "" 
     create_htpasswd "$tenant" "$password" "-che" 
