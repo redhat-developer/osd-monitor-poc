@@ -10,9 +10,8 @@ COPY pmwebd_guard.conf /etc/httpd/conf.d/pmwebd_guard.conf
 
 # the htpasswd file may be periodically replaced during run
 RUN touch                  /etc/httpd/conf/pmwebd_guard.htpasswd
-RUN chmod a+rwX            /etc/httpd/conf/pmwebd_guard.htpasswd
-
-RUN chmod a+rwX /run/httpd
+RUN chmod a+rwX            /etc/httpd/conf /etc/httpd/conf/pmwebd_guard.htpasswd
+RUN chmod a+rwX            /run/httpd
 
 COPY webapi_guard_start.sh /webapi_guard_start.sh
 

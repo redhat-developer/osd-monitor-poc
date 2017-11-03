@@ -11,9 +11,9 @@ HTPASSWD=/etc/httpd/conf/pmwebd_guard.htpasswd
 
 echo "Fetching $URL to $HTPASSWD"
 if [ -n "$URL" ]; then
-   curl "$URL" -o /tmp/file.$$ && mv /tmp/file.$$ "$HTPASSWD"
+   curl -f "$URL" -o /tmp/file.$$ && mv /tmp/file.$$ "$HTPASSWD"
    (while true; do
-        curl "$URL" -o /tmp/file.$$ && mv /tmp/file.$$ "$HTPASSWD"
+        curl -f "$URL" -o /tmp/file.$$ && mv /tmp/file.$$ "$HTPASSWD"
         if [ -f "$HTPASSWD" ]; then
             sleep $REFRESH
         else

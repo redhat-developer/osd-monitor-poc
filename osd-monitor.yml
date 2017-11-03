@@ -120,6 +120,80 @@ objects:
     tls:
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    labels:
+      service: oso-monitor
+    name: oso-monitor
+  spec:
+    replicas: 1
+    selector:
+      service: oso-monitor
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        labels:
+          service: oso-monitor
+      spec:
+        volumes:
+          - name: pcp-logs
+            persistentVolumeClaim:
+              claimName: oso-monitor-pcplogs
+        containers:
+        - image: 'registry.devshift.net/perf/oso-central-logger:${IMAGE_TAG}'
+          name: oso-central-logger
+          volumeMounts:
+            - name: pcp-logs
+              mountPath: /var/log/pcp
+          resources: {}
+        - image: 'registry.devshift.net/perf/oso-central-webapi-guard:${IMAGE_TAG}'
+          name: oso-central-webapi-guard
+          volumeMounts:
+            - name: pcp-logs
+              mountPath: /var/log/pcp
+          ports:
+            - containerPort: 44323
+              protocol: TCP
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - type: ConfigChange
+  status:
+    details:
+      causes:
+      - type: ConfigChange
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: oso-monitor
+    labels:
+      service: oso-monitor
+  spec:
+    ports:
+      - name: 'oso-monitor-webapi-guard'
+        protocol: TCP
+        port: 80
+        targetPort: 8001
+    selector:
+      service: oso-monitor
+    type: ClusterIP
+    sessionAffinity: None
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: oso-monitor
+  spec:
+    to:
+      kind: Service
+      name: oso-monitor
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Redirect
 parameters:
 - name: IMAGE_TAG
   value: latest
