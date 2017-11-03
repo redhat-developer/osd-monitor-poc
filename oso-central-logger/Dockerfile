@@ -12,6 +12,7 @@ COPY regen-tenant-list.sh /regen-tenant-list.sh
 ADD pmmgr-tenants /etc/pcp/pmmgr-tenants
 
 RUN chmod +x /usr/bin/fix-permissions && \
+    /usr/bin/fix-permissions /regen-tenant-list.sh && \
     /usr/bin/fix-permissions /etc/pcp && \
     /usr/bin/fix-permissions /var/lib/pcp && \
     /usr/bin/fix-permissions /var/log/pcp

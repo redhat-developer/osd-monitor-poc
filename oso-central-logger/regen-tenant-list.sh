@@ -58,8 +58,8 @@ create_url()
 
     # NB: url policy right here
     # NB: metric naming policy right here
-    url="https://$tenant:$password@$namespace.$oso_url_suffix$metrics_url"
-    urlfile="$pmdaprometheus_dir/`echo $namespace.$metrics_url | sed -e s,/osio_metrics/,, | tr _/- .`.url"
+    url="https://$tenant:$password@pcp-$namespace.$oso_url_suffix$metrics_url"
+    urlfile="$pmdaprometheus_dir/`echo $namespace.$metrics_url | tr _/- .`.url"
 
     echo "$url" > "$urlfile"
     echo "$urlfile" "$url"
@@ -99,19 +99,10 @@ for tenant in `cat $tenant_list`; do
     tenant_urlbase=$pmdaprometheus_dir/$tenant
     
     # XXX: osio architecture: the set of exported urls for each namespace of a tenant
-    create_url "$tenant" "$password" "" "/osio_metrics/prom"
-    create_url "$tenant" "$password" "-run" "/osio_metrics/prom"
-    create_url "$tenant" "$password" "-stage" "/osio_metrics/prom"
-    create_url "$tenant" "$password" "" "/osio_metrics/pcp"
-    create_url "$tenant" "$password" "-run" "/osio_metrics/pcp"
-    create_url "$tenant" "$password" "-stage" "/osio_metrics/pcp"
-    create_url "$tenant" "$password" "-che" "/osio_metrics/pcp"
-    create_url "$tenant" "$password" "-jenkins" "/osio_metrics/jenkins"
-    create_url "$tenant" "$password" "-jenkins" "/osio_metrics/content_repo"
+    create_url "$tenant" "$password" "-che" "/pcp/pmapi/1/metrics?target=kernel"
+    create_url "$tenant" "$password" "-jenkins" "/prom9180"
     
     create_htpasswd "$tenant" "$password" "" 
-    create_htpasswd "$tenant" "$password" "-run" 
-    create_htpasswd "$tenant" "$password" "-stage" 
     create_htpasswd "$tenant" "$password" "-che" 
     create_htpasswd "$tenant" "$password" "-jenkins" 
 done
