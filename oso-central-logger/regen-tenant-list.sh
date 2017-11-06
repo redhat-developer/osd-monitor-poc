@@ -100,7 +100,7 @@ for tenant in `cat $tenant_list`; do
     tenant_urlbase=$pmdaprometheus_dir/$tenant
     
     # XXX: osio architecture: the set of exported urls for each namespace of a tenant
-    create_url "$tenant" "$password" "-che" "server" "/pcp/pmapi/1/metrics?target=kernel"
+    create_url "$tenant" "$password" "-che" "server" "/pcp/1/metrics?target=filesys.full&target=proc.io&target=proc.psinfo&target=network.interface&target=cgroup.cpuacct&target=cgroup.memory&target=cgroup.blkio.all.throttle"
     create_url "$tenant" "$password" "-jenkins" "contentserver" "/prom9180"
     
     create_htpasswd "$tenant" "$password" "" 
