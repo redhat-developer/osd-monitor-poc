@@ -40,7 +40,7 @@ sleep 5 # give time for pmcd's startup messages, so it doesn't intermix with pmm
 (. /etc/pcp.env;
  while true
  do
-     /regen-tenant-list.sh
+     sh /regen-tenant-list.sh
      sleep 60
  done) &
     
