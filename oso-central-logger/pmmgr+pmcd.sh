@@ -7,6 +7,9 @@
 # Setup pmcd to run in unprivileged mode of operation
 . /etc/pcp.conf
 
+PATH=$PATH:$PCP_BINADM_DIR
+export PATH
+
 # Configure pmcd with a minimal set of DSO agents
 rm -f $PCP_PMCDCONF_PATH; # start empty
 echo "# Name  ID  IPC  IPC Params  File/Cmd" >> $PCP_PMCDCONF_PATH;
