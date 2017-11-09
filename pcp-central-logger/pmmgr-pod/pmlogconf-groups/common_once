@@ -1,0 +1,14 @@
+#pmlogconf-setup 2.0
+ident common metrics to pull once from all osd pods
+force include
+delta	once
+        proc.psinfo.psargs
+        proc.psinfo.environ
+	hinv
+	filesys.mountdir
+	filesys.blocksize
+	filesys.capacity
+	network.interface.mtu
+	network.interface.speed
+	network.interface.duplex
+	network.interface.inet_addr

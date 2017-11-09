@@ -1,0 +1,6 @@
+#pmlogconf-setup 2.0
+ident common infrequent metrics to pull from all osd pods 
+force include
+delta	15 minutes
+        proc.psinfo.psargs
+        # proc.psinfo.environ # huge
