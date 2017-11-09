@@ -1,4 +1,0 @@
-#pmlogconf-setup 2.0
-ident prometheus metrics to poll regularly from pods
-probe prometheus.wit ? include : exclude
-	prometheus.wit
