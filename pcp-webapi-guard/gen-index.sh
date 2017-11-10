@@ -29,7 +29,7 @@ component_column_metrics() {
         5) echo -n $2'-*.proc.psinfo.rss.*'$3$2'-*.proc.psinfo.vsize.*' ;;
         6) echo -n $2'-*.proc.psinfo.?time.*' ;;
         7) echo -n $2'-*.prometheus.wit.go_gc_duration_seconds_sum' ;;
-        8) echo -n $2'-*.prometheus.wit.http_response_size_bytes_count.*' ;;
+        8) echo -n $2'-*.prometheus.wit.http_*_size_bytes_sum.*' ;;
         9) echo -n $2'-*.prometheus.wit.http_request_duration_microseconds_sum.*' ;;
         *) exit 1 ;;
     esac
@@ -54,7 +54,7 @@ do
     echo '<tr>'
     
     # grafana dashboard in first column
-    echo '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4'
+    echo -n '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4'
     for colno in `seq $num_columns`; do
         echo -n '&target='
         component_column_metrics $colno $component ','

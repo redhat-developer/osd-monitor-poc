@@ -56,8 +56,7 @@ go http traffic</th>
 go http latency</th>
 </tr>
 <tr>
-<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4
-&target=auth-*.filesys.full.*&target=auth-*.proc.io.*_bytes.*&target=auth-*.network.interface.in.bytes.*,auth-*.network.interface.out.bytes.*&target=auth-*.proc.fd.count.*,auth-*.proc.psinfo.threads.*&target=auth-*.proc.psinfo.rss.*,auth-*.proc.psinfo.vsize.*&target=auth-*.proc.psinfo.?time.*&target=auth-*.prometheus.wit.go_gc_duration_seconds_sum&target=auth-*.prometheus.wit.http_response_size_bytes_count.*&target=auth-*.prometheus.wit.http_request_duration_microseconds_sum.*">auth</a></td>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4&target=auth-*.filesys.full.*&target=auth-*.proc.io.*_bytes.*&target=auth-*.network.interface.in.bytes.*,auth-*.network.interface.out.bytes.*&target=auth-*.proc.fd.count.*,auth-*.proc.psinfo.threads.*&target=auth-*.proc.psinfo.rss.*,auth-*.proc.psinfo.vsize.*&target=auth-*.proc.psinfo.?time.*&target=auth-*.prometheus.wit.go_gc_duration_seconds_sum&target=auth-*.prometheus.wit.http_*_size_bytes_sum.*&target=auth-*.prometheus.wit.http_request_duration_microseconds_sum.*">auth</a></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.filesys.full.*"></td>
 <td>
@@ -73,13 +72,12 @@ go http latency</th>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.http_response_size_bytes_count.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
-<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4
-&target=keycloak-server-*.filesys.full.*&target=keycloak-server-*.proc.io.*_bytes.*&target=keycloak-server-*.network.interface.in.bytes.*,keycloak-server-*.network.interface.out.bytes.*&target=keycloak-server-*.proc.fd.count.*,keycloak-server-*.proc.psinfo.threads.*&target=keycloak-server-*.proc.psinfo.rss.*,keycloak-server-*.proc.psinfo.vsize.*&target=keycloak-server-*.proc.psinfo.?time.*&target=keycloak-server-*.prometheus.wit.go_gc_duration_seconds_sum&target=keycloak-server-*.prometheus.wit.http_response_size_bytes_count.*&target=keycloak-server-*.prometheus.wit.http_request_duration_microseconds_sum.*">keycloak-server</a></td>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4&target=keycloak-server-*.filesys.full.*&target=keycloak-server-*.proc.io.*_bytes.*&target=keycloak-server-*.network.interface.in.bytes.*,keycloak-server-*.network.interface.out.bytes.*&target=keycloak-server-*.proc.fd.count.*,keycloak-server-*.proc.psinfo.threads.*&target=keycloak-server-*.proc.psinfo.rss.*,keycloak-server-*.proc.psinfo.vsize.*&target=keycloak-server-*.proc.psinfo.?time.*&target=keycloak-server-*.prometheus.wit.go_gc_duration_seconds_sum&target=keycloak-server-*.prometheus.wit.http_*_size_bytes_sum.*&target=keycloak-server-*.prometheus.wit.http_request_duration_microseconds_sum.*">keycloak-server</a></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.filesys.full.*"></td>
 <td>
@@ -95,13 +93,12 @@ go http latency</th>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.http_response_size_bytes_count.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
-<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4
-&target=core-*.filesys.full.*&target=core-*.proc.io.*_bytes.*&target=core-*.network.interface.in.bytes.*,core-*.network.interface.out.bytes.*&target=core-*.proc.fd.count.*,core-*.proc.psinfo.threads.*&target=core-*.proc.psinfo.rss.*,core-*.proc.psinfo.vsize.*&target=core-*.proc.psinfo.?time.*&target=core-*.prometheus.wit.go_gc_duration_seconds_sum&target=core-*.prometheus.wit.http_response_size_bytes_count.*&target=core-*.prometheus.wit.http_request_duration_microseconds_sum.*">core</a></td>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4&target=core-*.filesys.full.*&target=core-*.proc.io.*_bytes.*&target=core-*.network.interface.in.bytes.*,core-*.network.interface.out.bytes.*&target=core-*.proc.fd.count.*,core-*.proc.psinfo.threads.*&target=core-*.proc.psinfo.rss.*,core-*.proc.psinfo.vsize.*&target=core-*.proc.psinfo.?time.*&target=core-*.prometheus.wit.go_gc_duration_seconds_sum&target=core-*.prometheus.wit.http_*_size_bytes_sum.*&target=core-*.prometheus.wit.http_request_duration_microseconds_sum.*">core</a></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.filesys.full.*"></td>
 <td>
@@ -117,13 +114,12 @@ go http latency</th>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.http_response_size_bytes_count.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
-<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4
-&target=f8notification-*.filesys.full.*&target=f8notification-*.proc.io.*_bytes.*&target=f8notification-*.network.interface.in.bytes.*,f8notification-*.network.interface.out.bytes.*&target=f8notification-*.proc.fd.count.*,f8notification-*.proc.psinfo.threads.*&target=f8notification-*.proc.psinfo.rss.*,f8notification-*.proc.psinfo.vsize.*&target=f8notification-*.proc.psinfo.?time.*&target=f8notification-*.prometheus.wit.go_gc_duration_seconds_sum&target=f8notification-*.prometheus.wit.http_response_size_bytes_count.*&target=f8notification-*.prometheus.wit.http_request_duration_microseconds_sum.*">f8notification</a></td>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4&target=f8notification-*.filesys.full.*&target=f8notification-*.proc.io.*_bytes.*&target=f8notification-*.network.interface.in.bytes.*,f8notification-*.network.interface.out.bytes.*&target=f8notification-*.proc.fd.count.*,f8notification-*.proc.psinfo.threads.*&target=f8notification-*.proc.psinfo.rss.*,f8notification-*.proc.psinfo.vsize.*&target=f8notification-*.proc.psinfo.?time.*&target=f8notification-*.prometheus.wit.go_gc_duration_seconds_sum&target=f8notification-*.prometheus.wit.http_*_size_bytes_sum.*&target=f8notification-*.prometheus.wit.http_request_duration_microseconds_sum.*">f8notification</a></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.filesys.full.*"></td>
 <td>
@@ -139,13 +135,12 @@ go http latency</th>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.http_response_size_bytes_count.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
-<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4
-&target=f8tenant-*.filesys.full.*&target=f8tenant-*.proc.io.*_bytes.*&target=f8tenant-*.network.interface.in.bytes.*,f8tenant-*.network.interface.out.bytes.*&target=f8tenant-*.proc.fd.count.*,f8tenant-*.proc.psinfo.threads.*&target=f8tenant-*.proc.psinfo.rss.*,f8tenant-*.proc.psinfo.vsize.*&target=f8tenant-*.proc.psinfo.?time.*&target=f8tenant-*.prometheus.wit.go_gc_duration_seconds_sum&target=f8tenant-*.prometheus.wit.http_response_size_bytes_count.*&target=f8tenant-*.prometheus.wit.http_request_duration_microseconds_sum.*">f8tenant</a></td>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4&target=f8tenant-*.filesys.full.*&target=f8tenant-*.proc.io.*_bytes.*&target=f8tenant-*.network.interface.in.bytes.*,f8tenant-*.network.interface.out.bytes.*&target=f8tenant-*.proc.fd.count.*,f8tenant-*.proc.psinfo.threads.*&target=f8tenant-*.proc.psinfo.rss.*,f8tenant-*.proc.psinfo.vsize.*&target=f8tenant-*.proc.psinfo.?time.*&target=f8tenant-*.prometheus.wit.go_gc_duration_seconds_sum&target=f8tenant-*.prometheus.wit.http_*_size_bytes_sum.*&target=f8tenant-*.prometheus.wit.http_request_duration_microseconds_sum.*">f8tenant</a></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.filesys.full.*"></td>
 <td>
@@ -161,13 +156,12 @@ go http latency</th>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.http_response_size_bytes_count.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
-<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4
-&target=osd-monitor-*.filesys.full.*&target=osd-monitor-*.proc.io.*_bytes.*&target=osd-monitor-*.network.interface.in.bytes.*,osd-monitor-*.network.interface.out.bytes.*&target=osd-monitor-*.proc.fd.count.*,osd-monitor-*.proc.psinfo.threads.*&target=osd-monitor-*.proc.psinfo.rss.*,osd-monitor-*.proc.psinfo.vsize.*&target=osd-monitor-*.proc.psinfo.?time.*&target=osd-monitor-*.prometheus.wit.go_gc_duration_seconds_sum&target=osd-monitor-*.prometheus.wit.http_response_size_bytes_count.*&target=osd-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*">osd-monitor</a></td>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4&target=osd-monitor-*.filesys.full.*&target=osd-monitor-*.proc.io.*_bytes.*&target=osd-monitor-*.network.interface.in.bytes.*,osd-monitor-*.network.interface.out.bytes.*&target=osd-monitor-*.proc.fd.count.*,osd-monitor-*.proc.psinfo.threads.*&target=osd-monitor-*.proc.psinfo.rss.*,osd-monitor-*.proc.psinfo.vsize.*&target=osd-monitor-*.proc.psinfo.?time.*&target=osd-monitor-*.prometheus.wit.go_gc_duration_seconds_sum&target=osd-monitor-*.prometheus.wit.http_*_size_bytes_sum.*&target=osd-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*">osd-monitor</a></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.filesys.full.*"></td>
 <td>
@@ -183,13 +177,12 @@ go http latency</th>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.http_response_size_bytes_count.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
-<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4
-&target=oso-monitor-*.filesys.full.*&target=oso-monitor-*.proc.io.*_bytes.*&target=oso-monitor-*.network.interface.in.bytes.*,oso-monitor-*.network.interface.out.bytes.*&target=oso-monitor-*.proc.fd.count.*,oso-monitor-*.proc.psinfo.threads.*&target=oso-monitor-*.proc.psinfo.rss.*,oso-monitor-*.proc.psinfo.vsize.*&target=oso-monitor-*.proc.psinfo.?time.*&target=oso-monitor-*.prometheus.wit.go_gc_duration_seconds_sum&target=oso-monitor-*.prometheus.wit.http_response_size_bytes_count.*&target=oso-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*">oso-monitor</a></td>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4&target=oso-monitor-*.filesys.full.*&target=oso-monitor-*.proc.io.*_bytes.*&target=oso-monitor-*.network.interface.in.bytes.*,oso-monitor-*.network.interface.out.bytes.*&target=oso-monitor-*.proc.fd.count.*,oso-monitor-*.proc.psinfo.threads.*&target=oso-monitor-*.proc.psinfo.rss.*,oso-monitor-*.proc.psinfo.vsize.*&target=oso-monitor-*.proc.psinfo.?time.*&target=oso-monitor-*.prometheus.wit.go_gc_duration_seconds_sum&target=oso-monitor-*.prometheus.wit.http_*_size_bytes_sum.*&target=oso-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*">oso-monitor</a></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.filesys.full.*"></td>
 <td>
@@ -205,7 +198,7 @@ go http latency</th>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.http_response_size_bytes_count.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
