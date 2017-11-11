@@ -26,7 +26,7 @@ component_column_metrics() {
         2) echo -n $2'-*.proc.io.*_bytes.*' ;;
         3) echo -n $2'-*.network.interface.in.bytes.*'$3$2'-*.network.interface.out.bytes.*' ;;
         4) echo -n $2'-*.proc.fd.count.*'$3$2'-*.proc.psinfo.threads.*' ;;
-        5) echo -n $2'-*.proc.psinfo.rss.*'$3$2'-*.proc.psinfo.vsize.*' ;;
+        5) echo -n $2'-*.proc.psinfo.rss.*'$3$2'-*.proc.psinfo.vsize.*'$3$2'-*.cgroup.memory.usage' ;;
         6) echo -n $2'-*.proc.psinfo.?time.*' ;;
         7) echo -n $2'-*.prometheus.wit.go_gc_duration_seconds_sum' ;;
         8) echo -n $2'-*.prometheus.wit.http_*_size_bytes_sum.*' ;;
