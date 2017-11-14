@@ -81,7 +81,7 @@ echo '</tr>'
 component=NODE
 echo '<tr>'
 # grafana dashboard in first column
-echo -n '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&template='$component'*&span12s=4'
+echo -n '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&template='$component'*&span12s=12&height=150'
 for colno in `seq $node_num_columns`; do
     echo -n '&target='
     node_column_metrics $colno $component ','
@@ -115,7 +115,7 @@ do
     echo '<tr>'
     
     # grafana dashboard in first column
-    echo -n '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4'
+    echo -n '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150'
     for colno in `seq $component_num_columns`; do
         echo -n '&target='
         component_column_metrics $colno $component ','
