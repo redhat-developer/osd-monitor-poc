@@ -49,7 +49,7 @@ for colno in `seq $num_columns`; do
 done
 echo '</tr>'
 
-for component in auth keycloak-server core f8notification f8tenant osd-monitor oso-monitor
+for component in auth che core f8notification f8tenant osd-monitor oso-monitor keycloak-server 
 do
     echo '<tr>'
     
