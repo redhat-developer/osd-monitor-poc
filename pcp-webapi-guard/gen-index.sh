@@ -1,9 +1,38 @@
 #! /bin/sh
 
+http_prefix=${HTTP_PREFIX}
 
-http_prefix=
-num_columns=9
+node_num_columns=8
+node_column_name() {
+    case $1 in    
+        1) echo -n 'load avg' ;;
+        2) echo -n 'processes' ;;
+        3) echo -n 'idle cpu%' ;;
+        4) echo -n 'user cpu%' ;;
+        5) echo -n 'sys cpu%' ;;
+        6) echo -n 'disk i/o' ;;
+        7) echo -n 'memory avail' ;;
+        8) echo -n 'memory fault' ;;
+        *) exit 1 ;;
+    esac
+}
 
+node_column_metrics() {
+    case $1 in
+        1) echo -n 'kernel.all.load.1%20minute' ;;
+        2) echo -n 'kernel.all.running'$3'kernel.all.blocked' ;;
+        3) echo -n 'kernel.cpu.util.idle' ;;
+        4) echo -n 'kernel.cpu.util.user' ;;
+        5) echo -n 'kernel.cpu.util.sys' ;;
+        6) echo -n 'disk.dev.read_bytes.*'$3'disk.dev.write_bytes.*' ;;
+        7) echo -n 'mem.util.available'$3'mem.util.used' ;;
+        8) echo -n 'mem.vmstat.*fault' ;;
+        *) exit 1 ;;
+    esac
+}
+
+
+component_num_columns=9
 component_column_name() {
     case $1 in
         1) echo -n 'fs fullness' ;;
@@ -18,7 +47,6 @@ component_column_name() {
         *) exit 1 ;;
     esac
 }
-
 
 component_column_metrics() {
     case $1 in
@@ -39,10 +67,43 @@ component_column_metrics() {
 # generate the repeating portions of the index page
 set -e
 exec > index.html
-cat index.html.tmpl | sed -n -e '/CUT HERE 0/,/CUT HERE 1/ {p} '
+cat index.html.tmpl | sed -n -e '/CUT HERE TOP/,/CUT HERE NODE/ {p} '
+
+echo '<table><tr>
+<th>node</th>'
+for colno in `seq $node_num_columns`; do
+    echo '<th>'
+    node_column_name $colno
+    echo '</th>'
+done
+echo '</tr>'
+
+component=NODE
+echo '<tr>'
+# grafana dashboard in first column
+echo -n '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&template='$component'*&span12s=4'
+for colno in `seq $node_num_columns`; do
+    echo -n '&target='
+    node_column_metrics $colno $component ','
+done
+echo '">'$component'</a></td>'
+
+# individual sparklines for same columns
+for colno in `seq $node_num_columns`; do
+    echo '<td>'
+    echo -n '<img class="pcp" src="'$http_prefix'/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target='$component'-*.'
+    node_column_metrics $colno $component '&target='$component'-*.' 
+    echo '"></td>'
+done
+
+echo '</tr>'
+echo '</table>'
+
+cat index.html.tmpl | sed -n -e '/CUT HERE NODE/,/CUT HERE COMPONENT/ {p} '
+
 echo '<table><tr>
 <th>pod</th>'
-for colno in `seq $num_columns`; do
+for colno in `seq $component_num_columns`; do
     echo '<th>'
     component_column_name $colno
     echo '</th>'
@@ -55,14 +116,14 @@ do
     
     # grafana dashboard in first column
     echo -n '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=4'
-    for colno in `seq $num_columns`; do
+    for colno in `seq $component_num_columns`; do
         echo -n '&target='
         component_column_metrics $colno $component ','
     done
     echo '">'$component'</a></td>'
 
     # individual sparklines for same columns
-    for colno in `seq $num_columns`; do
+    for colno in `seq $component_num_columns`; do
         echo '<td>'
         echo -n '<img class="pcp" src="'$http_prefix'/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target='
         component_column_metrics $colno $component '&target=' 
@@ -74,4 +135,4 @@ done
 
 echo '</table>'
 
-cat index.html.tmpl | sed -n -e '/CUT HERE 2/,/CUT HERE 3/ {p} '
+cat index.html.tmpl | sed -n -e '/CUT HERE COMPONENT/,/CUT HERE BOTTOM/ {p} '
