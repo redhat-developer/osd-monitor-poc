@@ -50,15 +50,15 @@ component_column_name() {
 
 component_column_metrics() {
     case $1 in
-        1) echo -n $2'-*.filesys.full.*' ;;
-        2) echo -n $2'-*.proc.io.*_bytes.*' ;;
-        3) echo -n $2'-*.network.interface.in.bytes.*'$3$2'-*.network.interface.out.bytes.*' ;;
-        4) echo -n $2'-*.proc.fd.count.*'$3$2'-*.proc.psinfo.threads.*' ;;
-        5) echo -n $2'-*.proc.psinfo.rss.*'$3$2'-*.proc.psinfo.vsize.*'$3$2'-*.cgroup.memory.usage.*' ;;
-        6) echo -n $2'-*.proc.psinfo.?time.*' ;;
-        7) echo -n $2'-*.prometheus.wit.go_gc_duration_seconds_sum' ;;
-        8) echo -n $2'-*.prometheus.wit.http_*_size_bytes_sum.*' ;;
-        9) echo -n $2'-*.prometheus.wit.http_request_duration_microseconds_sum.*' ;;
+        1) echo -n $2'filesys.full.*' ;;
+        2) echo -n $2'proc.io.*_bytes.*' ;;
+        3) echo -n $2'network.interface.in.bytes.*'$3$2'network.interface.out.bytes.*' ;;
+        4) echo -n $2'proc.fd.count.*'$3$2'proc.psinfo.threads.*' ;;
+        5) echo -n $2'proc.psinfo.rss.*'$3$2'proc.psinfo.vsize.*'$3$2'cgroup.memory.usage.*' ;;
+        6) echo -n $2'proc.psinfo.?time.*' ;;
+        7) echo -n $2'prometheus.wit.go_gc_duration_seconds_sum' ;;
+        8) echo -n $2'prometheus.wit.http_*_size_bytes_sum.*' ;;
+        9) echo -n $2'prometheus.wit.http_request_duration_microseconds_sum.*' ;;
         *) exit 1 ;;
     esac
 }
@@ -118,7 +118,7 @@ do
     echo -n '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150'
     for colno in `seq $component_num_columns`; do
         echo -n '&target='
-        component_column_metrics $colno $component ','
+        component_column_metrics $colno $component'-*.' ','
     done
     echo '">'$component'</a></td>'
 
@@ -126,13 +126,29 @@ do
     for colno in `seq $component_num_columns`; do
         echo '<td>'
         echo -n '<img class="pcp" src="'$http_prefix'/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target='
-        component_column_metrics $colno $component '&target=' 
+        component_column_metrics $colno $component'-*.' '&target=' 
         echo '"></td>'
     done
     
     echo '</tr>'
 done
 
+# another row for "ALL" apps
+component=ALL
+echo '<tr></tr>'
+echo '<tr>'
+
+# blank cell
+echo '<td></td>'
+
+# individual sparklines for same columns
+for colno in `seq $component_num_columns`; do
+    echo -n '<td><a href="'$http_prefix'/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&template=*&span12s=12&height=450&target='
+    component_column_metrics $colno '' ',' 
+    echo '">ALL</a></td>'
+done
+
+echo '</tr>'
 echo '</table>'
 
 cat index.html.tmpl | sed -n -e '/CUT HERE COMPONENT/,/CUT HERE BOTTOM/ {p} '
