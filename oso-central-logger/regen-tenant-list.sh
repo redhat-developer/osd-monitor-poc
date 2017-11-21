@@ -101,7 +101,7 @@ for tenant in `cat $tenant_list`; do
     
     # XXX: osio architecture: the set of exported urls for each namespace of a tenant
     create_url "$tenant" "$password" "-che" "server" "/pcp/1/metrics?target=filesys.full&target=proc.io&target=proc.psinfo&target=network.interface&target=cgroup.cpuacct&target=cgroup.memory&target=cgroup.blkio.all.throttle"
-    create_url "$tenant" "$password" "-jenkins" "contentserver" "/prom9180"
+    create_url "$tenant" "$password" "-jenkins" "contentserver" "/prom9180/metrics"
     
     create_htpasswd "$tenant" "$password" "" 
     create_htpasswd "$tenant" "$password" "-che" 
