@@ -51,14 +51,14 @@ objects:
               port: 44323
             initiaDelaySeconds: 30
             periodSeconds: 60
-            timeoutSeconds: 5
+            timeoutSeconds: 10
           readinessProbe:
             httpGet:
               path: /pmapi/1/metrics?target=kernel.all.load
               port: 44323
             initiaDelaySeconds: 30
             periodSeconds: 60
-            timeoutSeconds: 5
+            timeoutSeconds: 10
             resources: {}
         - image: 'registry.devshift.net/perf/pcp-webapi-guard:${IMAGE_TAG}'
           name: pcp-webapi-guard
@@ -74,14 +74,14 @@ objects:
               port: 8000
             initiaDelaySeconds: 30
             periodSeconds: 60
-            timeoutSeconds: 5
+            timeoutSeconds: 10
           readinessProbe:
             httpGet:
               path: /index.html
               port: 8000
             initiaDelaySeconds: 30
             periodSeconds: 60
-            timeoutSeconds: 5
+            timeoutSeconds: 10
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}
