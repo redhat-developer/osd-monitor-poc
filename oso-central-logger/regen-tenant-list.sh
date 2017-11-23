@@ -29,22 +29,33 @@ htpasswd_dir=$PCP_LOG_DIR/tenant-auth
 mkdir -p $htpasswd_dir
 touch $htpasswd_dir/index.html  # don't let pmweb auto-generate a listings
 
-tenant_list=$PCP_LOG_DIR/tenant-list
-# XXX: need f8 api to populate this
-# https://github.com/fabric8-services/fabric8-auth/issues/150
-
+pmmgr_dir=$PCP_ETC_DIR/pmmgr/pmmgr-tenants
+mkdir -p $pmmgr_dir
 
 prod_oso_url_suffix=8a09.starter-us-east-2.openshiftapps.com
 preview_oso_url_suffix=8d00.free-int.openshiftapps.com
 oso_url_suffix=$prod_oso_url_suffix
+# XXX: configure
 
+
+# XXX: master secret
 #hmac_key=/etc/secret-volume/hmac_key
 hmac_key=/dev/null
 
 
-if [ ! -s $tenant_list ]; then
-    exit
-fi
+any_changed=0
+replace_update_file() {
+    old="$1"
+    new="$2"
+    
+    if cmp -s "$old" "$new"; then
+        rm -f "$new"
+    else
+        mv -f "$new" "$old"
+        echo "$old changed: `cat $old`"
+        any_changed=1
+    fi
+}
 
 
 create_url()
@@ -62,8 +73,8 @@ create_url()
     url="https://$tenant:$password@pcp-$namespace.$oso_url_suffix$metrics_url"
     urlfile="$pmdaprometheus_dir/`echo $namespace.$metrics_prefix | tr _/- .`.url"
 
-    echo "$url" > "$urlfile"
-    echo "$urlfile" "$url"
+    echo "$url" > "$urlfile.NEW"
+    replace_update_file "$urlfile" "$urlfile.NEW"
 }
 
 
@@ -75,11 +86,35 @@ create_htpasswd()
 
     # NB: url policy right here
     file="$htpasswd_dir/htpasswd.$tenant$project"
-    htpasswd -B -b -c $file "$tenant" "$password"
-    echo "$file" `cat $file`
+    htpasswd -B -b -c "$file.NEW" "$tenant" "$password"
+    replace_update_file "$file" "$file.NEW"
 }
 
 
+create_pmmgr()
+{
+    tenant="$1"
+    
+    echo "log advisory on default {" > $pmmgr_dir/pmlogger.config.$tenant.NEW
+    echo "   prometheus.$tenant" >> $pmmgr_dir/pmlogger.config.$tenant.NEW
+    echo "}" >> $pmmgr_dir/pmlogger.config.$tenant.NEW
+    replace_update_file $pmmgr_dir/pmlogger.config.$tenant $pmmgr_dir/pmlogger.config.$tenant.NEW
+    echo "-c $pmmgr_dir/pmlogger.config.$tenant" > $pmmgr_dir/pmlogger.$tenant.NEW
+    replace_update_file $pmmgr_dir/pmlogger.$tenant $pmmgr_dir/pmlogger.$tenant.NEW
+}
+
+
+#  XXX: should have way of sharding - selecting only a subset of tenants
+tenant_list=$PCP_LOG_DIR/tenant-list
+
+# XXX: need f8 api to populate this
+# https://github.com/fabric8-services/fabric8-tenant/issues/369
+if [ ! -s $tenant_list.MASTER ]; then
+    exit
+fi
+cp $tenant_list.MASTER $tenant_list.NEW
+
+replace_update_file $tenant_list $tenant_list.NEW
 for tenant in `cat $tenant_list`; do
     if expr "$tenant" : "^[a-zA-Z0-9_-]*$" >/dev/null; then
         echo processing tenant $tenant
@@ -105,5 +140,14 @@ for tenant in `cat $tenant_list`; do
     
     create_htpasswd "$tenant" "$password" "" 
     create_htpasswd "$tenant" "$password" "-che" 
-    create_htpasswd "$tenant" "$password" "-jenkins" 
+    create_htpasswd "$tenant" "$password" "-jenkins"
+
+    create_pmmgr "$tenant" "$tenant" "$tenant-che" "$tenant-jenkins"
 done
+
+
+# Create pmmgr configuration for all the tenants.
+# We'll put each $tenant into a separate archive
+
+cp $tenant_list $pmmgr_dir/hostid-static.NEW
+replace_update_file $pmmgr_dir/hostid-static $pmmgr_dir/hostid-static.NEW
