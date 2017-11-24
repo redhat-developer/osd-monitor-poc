@@ -47,5 +47,5 @@ sleep 5 # give time for pmcd's startup messages, so it doesn't intermix with pmm
      sleep 60
  done) &
     
-exec $VALGRIND /usr/libexec/pcp/bin/pmmgr -v -v -p 180 -c /etc/pcp/pmmgr-tenant
+exec $VALGRIND /usr/libexec/pcp/bin/pmmgr -v -v -p 180 -c /etc/pcp/pmmgr-tenants
 # XXX: one pmmgr configuration directory per tenant-class
