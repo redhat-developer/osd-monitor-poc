@@ -29,7 +29,7 @@ htpasswd_dir=$PCP_LOG_DIR/tenant-auth
 mkdir -p $htpasswd_dir
 touch $htpasswd_dir/index.html  # don't let pmweb auto-generate a listings
 
-pmmgr_dir=$PCP_ETC_DIR/pmmgr/pmmgr-tenants
+pmmgr_dir=$PCP_ETC_DIR/pcp/pmmgr/pmmgr-tenants
 mkdir -p $pmmgr_dir
 
 prod_oso_url_suffix=8a09.starter-us-east-2.openshiftapps.com
