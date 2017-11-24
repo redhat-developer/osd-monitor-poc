@@ -86,7 +86,8 @@ create_htpasswd()
 
     # NB: url policy right here
     file="$htpasswd_dir/htpasswd.$tenant$project"
-    htpasswd -B -b -c "$file.NEW" "$tenant" "$password"
+    # SHA hash for unsalted use
+    htpasswd -s -b -c "$file.NEW" "$tenant" "$password" 2>/dev/null
     replace_update_file "$file" "$file.NEW"
 }
 
@@ -144,10 +145,6 @@ for tenant in `cat $tenant_list`; do
 
     create_pmmgr "$tenant" "$tenant" "$tenant-che" "$tenant-jenkins"
 done
-
-
-# Create pmmgr configuration for all the tenants.
-# We'll put each $tenant into a separate archive
 
 cp $tenant_list $pmmgr_dir/hostid-static.NEW
 replace_update_file $pmmgr_dir/hostid-static $pmmgr_dir/hostid-static.NEW
