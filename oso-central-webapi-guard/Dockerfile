@@ -7,6 +7,7 @@ RUN sed -i -e "s,logs/access_log,/dev/stdout," /etc/httpd/conf/httpd.conf
 EXPOSE 8001
 
 COPY oso_central_webapi_guard.conf /etc/httpd/conf.d/oso_central_webapi_guard.conf
+COPY pmwebd_guard.htpasswd /etc/httpd/conf/pmwebd_guard.htpasswd
 RUN chmod a+rwX /run/httpd
 
 VOLUME /var/log/pcp

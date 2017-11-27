@@ -149,8 +149,31 @@ objects:
               mountPath: /var/log/pcp
           resources: {}
           ports:
+            - containerPort: 44321
+              protocol: TCP
+        - image: 'registry.devshift.net/perf/pcp-central-webapi:${IMAGE_TAG}'
+          name: pcp-central-webapi
+          volumeMounts:
+            - name: pcp-logs
+              mountPath: /var/log/pcp
+          ports:
             - containerPort: 44323
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /pmapi/1/metrics?target=kernel.all.load
+              port: 44323
+            initiaDelaySeconds: 30
+            periodSeconds: 60
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /pmapi/1/metrics?target=kernel.all.load
+              port: 44323
+            initiaDelaySeconds: 30
+            periodSeconds: 60
+            timeoutSeconds: 10
+            resources: {}
         - image: 'registry.devshift.net/perf/oso-central-webapi-guard:${IMAGE_TAG}'
           name: oso-central-webapi-guard
           volumeMounts:
