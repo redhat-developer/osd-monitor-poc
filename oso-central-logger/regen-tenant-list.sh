@@ -37,11 +37,11 @@ preview_oso_url_suffix=8d00.free-int.openshiftapps.com
 oso_url_suffix=$prod_oso_url_suffix
 # XXX: configure
 
-
-# XXX: master secret
-#hmac_key=/etc/secret-volume/hmac_key
-hmac_key=/dev/null
-
+hmac_key=/run/secrets/oso-monitor/oso.tenant.salt
+if [ ! -f $hmac_key ]; then
+    echo WARNING: $hmac_key not found
+    hmac_key=/dev/null
+fi
 
 any_changed=0
 replace_update_file() {
@@ -86,7 +86,11 @@ create_htpasswd()
 
     # NB: url policy right here
     file="$htpasswd_dir/htpasswd.$tenant$project"
+    
     # SHA hash for unsalted use
+    # XXX: we could instead generate a proper salted one (sans -s),
+    # but then we'd regenerate a new (equivalent!) htpasswd all the 
+    # time, even if $hmac_key (and thus $password) hasn't changed.
     htpasswd -s -b -c "$file.NEW" "$tenant" "$password" 2>/dev/null
     replace_update_file "$file" "$file.NEW"
 }

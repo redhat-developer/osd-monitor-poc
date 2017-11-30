@@ -141,12 +141,21 @@ objects:
           - name: pcp-logs
             persistentVolumeClaim:
               claimName: oso-monitor-pcplogs
+          - name: oso-secrets
+            secret:
+              secretName: oso-monitor
+              items:
+              - key: oso.tenant.salt
+                path: oso.tenant.salt
+                mode: 292
         containers:
         - image: 'registry.devshift.net/perf/oso-central-logger:${IMAGE_TAG}'
           name: oso-central-logger
           volumeMounts:
             - name: pcp-logs
               mountPath: /var/log/pcp
+            - name: oso-secrets
+              mountPath: /run/secrets/oso-monitor
           resources: {}
           ports:
             - containerPort: 44321
