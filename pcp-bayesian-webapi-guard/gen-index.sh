@@ -69,7 +69,8 @@ for component in \
                  f8a-firehose-fetcher \
                  f8a-license-analysis \
                  f8a-worker-scaler \
-                 fabric8-analytics-stack-report-ui
+                 fabric8-analytics-stack-report-ui \
+		 osd-monitor
 do
     echo '<tr>'
     
