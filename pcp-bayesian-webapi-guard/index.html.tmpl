@@ -1,0 +1,50 @@
+<!----------- CUT HERE TOP ----------->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+    <meta http-equiv="refresh" content="300">
+    <title>OSD bayesian monitoring with Performance Co-Pilot</title>
+
+    <style>
+      td img { display: block; margin: auto; }
+      table { border-collapse: collapse; table-layout:fixed; }
+      table, th, td { border: 1px solid grey; }
+      td, th { width: 110px; }
+      th { font-weight: normal; }
+    </style>
+    
+    <script>
+      /* These routines adjust the vector invocation url so that the
+      dashboard is ready to run, connecting to the same pmwebd where
+      its static assets were downloaded from. */
+      function vectorize (id) {
+      var server = location.protocol + "//" + location.hostname + ":" + location.port;
+      document.getElementById(id).setAttribute("href",
+         "vector/index.html#?host=" + encodeURIComponent(server));
+      }
+    </script>
+  </head>
+  <body onload="vectorize('vectorurl1');">
+    <h2>OSIO customized dashboards, 6-hour sparklines</h2>
+    <h3>APPS</h3>
+    <!----------- CUT HERE COMPONENT ----------->
+    <h2>Generic PCP webapps</h2>
+    <ul>
+<!-- <li><a id="vectorurl1" href="vector/">Vector</a> for a live view of some metrics of a single node.</li> -->
+      <li><a href="graphite/index.html">Graphite</a> to browse the archived metrics for all the hosts,
+        so as to build PNG image URLs that contain time series visualizations.</li>
+      <li>Grafana <a href="grafana/index.html#/dashboard/script/hostselect.js">host-list</a> |
+        <a href="grafana/index.html#/dashboard/file/default.json">flot.js</a> |
+        <a href="grafana/index.html#/dashboard/file/default-png.json">png</a> for a more interactive
+        set of generic dashboards.</li>
+    </ul>
+    <h2>Sources</h2>
+    <ul>
+      <li><a href="/archives/">PCP archives</a> for downloading and local processing</li>
+      <li><a href="https://github.com/redhat-developer/osd-monitor-poc.git/">osd-monitor github repo</a></li>
+      <li>PCP configuration for <a href="https://github.com/redhat-developer/osd-monitor-poc/blob/master/pcp-central-logger/pmmgr-pod/config.pmlogger">pod logging</a></li>
+      <li>The <a href="https://github.com/redhat-developer/osd-monitor-poc/blob/master/pcp-bayesian-webapi-guard/index.html">source</a> for this <tt>index.html</tt> file.</li>
+    </ul>
+  </body>
+</html>
+<!----------- CUT HERE BOTTOM ----------->

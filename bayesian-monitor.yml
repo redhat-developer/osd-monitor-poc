@@ -1,0 +1,125 @@
+kind: Template
+apiVersion: v1
+metadata:
+  name: osd-monitor
+objects:
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    labels:
+      service: osd-monitor
+    name: osd-monitor
+  spec:
+    replicas: 1
+    selector:
+      service: osd-monitor
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        labels:
+          service: osd-monitor
+      spec:
+        serviceAccountName: osd-monitor
+        volumes:
+          - name: pcp-logs
+            persistentVolumeClaim:
+              claimName: osd-monitor-pcplogs
+        containers:
+        - image: 'registry.devshift.net/perf/pcp-bayesian-central-logger:${IMAGE_TAG}'
+          name: pcp-bayesian-central-logger
+          volumeMounts:
+            - name: pcp-logs
+              mountPath: /var/log/pcp
+          resources: {}
+          env:
+            - name: ZABBIX_SERVER
+              value: zabbix.devshift.net
+            - name: VALGRIND
+              value: ~
+        - image: 'registry.devshift.net/perf/pcp-central-webapi:${IMAGE_TAG}'
+          name: pcp-central-webapi
+          volumeMounts:
+            - name: pcp-logs
+              mountPath: /var/log/pcp
+          ports:
+            - containerPort: 44323
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /pmapi/1/metrics?target=kernel.all.load
+              port: 44323
+            initiaDelaySeconds: 30
+            periodSeconds: 60
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /pmapi/1/metrics?target=kernel.all.load
+              port: 44323
+            initiaDelaySeconds: 30
+            periodSeconds: 60
+            timeoutSeconds: 10
+            resources: {}
+        - image: 'registry.devshift.net/perf/pcp-bayesian-webapi-guard:${IMAGE_TAG}'
+          name: pcp-webapi-guard
+          volumeMounts:
+            - name: pcp-logs
+              mountPath: /var/log/pcp
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: 8000
+            initiaDelaySeconds: 30
+            periodSeconds: 60
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /index.html
+              port: 8000
+            initiaDelaySeconds: 30
+            periodSeconds: 60
+            timeoutSeconds: 10
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - type: ConfigChange
+  status:
+    details:
+      causes:
+      - type: ConfigChange
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: osd-monitor
+    labels:
+      service: osd-monitor
+  spec:
+    ports:
+      - name: 'osd-monitor-webapi-guard'
+        protocol: TCP
+        port: 80
+        targetPort: 8000
+    selector:
+      service: osd-monitor
+    type: ClusterIP
+    sessionAffinity: None
+- kind: Route
+  apiVersion: v1
+  metadata:
+    name: osd-monitor
+  spec:
+    to:
+      kind: Service
+      name: osd-monitor
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Redirect
+parameters:
+- name: IMAGE_TAG
+  value: latest
