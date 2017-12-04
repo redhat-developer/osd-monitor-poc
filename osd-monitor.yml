@@ -124,15 +124,6 @@ objects:
   kind: ServiceAccount
   metadata:
     name: osd-monitor
-- apiVersion: v1
-  kind: RoleBinding
-  metadata:
-    name: osd-monitor
-  roleRef:
-    name: view
-  subjects:
-  - kind: ServiceAccount
-    name: osd-monitor
 - kind: DeploymentConfig
   apiVersion: v1
   metadata:
