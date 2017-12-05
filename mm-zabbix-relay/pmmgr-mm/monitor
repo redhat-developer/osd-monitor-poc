@@ -1,0 +1,1 @@
+pcp2zabbix -g $ZABBIX_SERVER -E 60 -t 60 ${PCP_METRICS}

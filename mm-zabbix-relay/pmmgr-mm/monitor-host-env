@@ -1,1 +1,0 @@
-/pmrep-zabbix.sh -t 60 ${PCP_METRICS}
