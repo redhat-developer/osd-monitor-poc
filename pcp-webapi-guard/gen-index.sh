@@ -51,11 +51,11 @@ component_column_name() {
 component_column_metrics() {
     case $1 in
         1) echo -n $2'filesys.full.*' ;;
-        2) echo -n $2'proc.io.*_bytes.*' ;;
+        2) echo -n $2'proc.io.*_bytes.*'$3$2'cgroup.blkio.all.throttle.io_service_bytes.read.*'$3$2'cgroup.blkio.all.throttle.io_service_bytes.write.*' ;;
         3) echo -n $2'network.interface.in.bytes.*'$3$2'network.interface.out.bytes.*' ;;
         4) echo -n $2'proc.fd.count.*'$3$2'proc.psinfo.threads.*' ;;
         5) echo -n $2'proc.psinfo.rss.*'$3$2'proc.psinfo.vsize.*'$3$2'cgroup.memory.usage.*' ;;
-        6) echo -n $2'proc.psinfo.?time.*' ;;
+        6) echo -n $2'proc.psinfo.?time.*'$3$2'cgroup.cpuacct.stat.*.*' ;;
         7) echo -n $2'prometheus.wit.go_gc_duration_seconds_sum' ;;
         8) echo -n $2'prometheus.wit.http_*_size_bytes_sum.*' ;;
         9) echo -n $2'prometheus.wit.http_request_duration_microseconds_sum.*' ;;
