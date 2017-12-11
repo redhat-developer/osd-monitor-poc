@@ -123,3 +123,7 @@ objects:
 parameters:
 - name: IMAGE_TAG
   value: latest
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: osd-monitor
