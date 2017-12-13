@@ -52,14 +52,6 @@ objects:
             initiaDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /pmapi/1/metrics?target=kernel.all.load
-              port: 44323
-            initiaDelaySeconds: 30
-            periodSeconds: 60
-            timeoutSeconds: 10
-            resources: {}
         - image: 'registry.devshift.net/perf/pcp-webapi-guard:${IMAGE_TAG}'
           name: pcp-webapi-guard
           volumeMounts:
@@ -69,13 +61,6 @@ objects:
             - containerPort: 8000
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /index.html
-              port: 8000
-            initiaDelaySeconds: 30
-            periodSeconds: 60
-            timeoutSeconds: 10
-          readinessProbe:
             httpGet:
               path: /index.html
               port: 8000
@@ -179,14 +164,6 @@ objects:
             initiaDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /pmapi/1/metrics?target=kernel.all.load
-              port: 44323
-            initiaDelaySeconds: 30
-            periodSeconds: 60
-            timeoutSeconds: 10
-            resources: {}
         - image: 'registry.devshift.net/perf/oso-central-webapi-guard:${IMAGE_TAG}'
           name: oso-central-webapi-guard
           volumeMounts:
