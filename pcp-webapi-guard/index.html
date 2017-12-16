@@ -50,21 +50,21 @@ memory fault</th>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&template=NODE*&span12s=12&height=150&target=kernel.all.load.1%20minute&target=kernel.all.running,kernel.all.blocked&target=kernel.cpu.util.idle&target=kernel.cpu.util.user&target=kernel.cpu.util.sys&target=disk.dev.read_bytes.*,disk.dev.write_bytes.*&target=mem.util.available,mem.util.used&target=mem.vmstat.*fault">NODE</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.all.load.1%20minute"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.all.load.1%20minute"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.all.running&target=NODE-*.kernel.all.blocked"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.all.running&target=NODE-*.kernel.all.blocked"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.cpu.util.idle"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.cpu.util.idle"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.cpu.util.user"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.cpu.util.user"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.cpu.util.sys"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.kernel.cpu.util.sys"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.disk.dev.read_bytes.*&target=NODE-*.disk.dev.write_bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.disk.dev.read_bytes.*&target=NODE-*.disk.dev.write_bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.mem.util.available&target=NODE-*.mem.util.used"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.mem.util.available&target=NODE-*.mem.util.used"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.mem.vmstat.*fault"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=NODE-*.mem.vmstat.*fault"></td>
 </tr>
 </table>
     <!----------- CUT HERE NODE ----------->
@@ -94,191 +94,191 @@ go http latency</th>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=auth-*.filesys.full.*&target=auth-*.proc.io.*_bytes.*,auth-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,auth-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=auth-*.network.interface.in.bytes.*,auth-*.network.interface.out.bytes.*&target=auth-*.proc.fd.count.*,auth-*.proc.psinfo.threads.*&target=auth-*.proc.psinfo.rss.*,auth-*.proc.psinfo.vsize.*,auth-*.cgroup.memory.usage.*&target=auth-*.proc.psinfo.?time.*,auth-*.cgroup.cpuacct.stat.*.*&target=auth-*.prometheus.wit.go_gc_duration_seconds_sum&target=auth-*.prometheus.wit.http_*_size_bytes_sum.*&target=auth-*.prometheus.wit.http_request_duration_microseconds_sum.*">auth</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.filesys.full.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.filesys.full.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.proc.io.*_bytes.*&target=auth-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=auth-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.proc.io.*_bytes.*&target=auth-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=auth-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.network.interface.in.bytes.*&target=auth-*.network.interface.out.bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.network.interface.in.bytes.*&target=auth-*.network.interface.out.bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.proc.fd.count.*&target=auth-*.proc.psinfo.threads.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.proc.fd.count.*&target=auth-*.proc.psinfo.threads.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.proc.psinfo.rss.*&target=auth-*.proc.psinfo.vsize.*&target=auth-*.cgroup.memory.usage.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.proc.psinfo.rss.*&target=auth-*.proc.psinfo.vsize.*&target=auth-*.cgroup.memory.usage.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.proc.psinfo.?time.*&target=auth-*.cgroup.cpuacct.stat.*.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.proc.psinfo.?time.*&target=auth-*.cgroup.cpuacct.stat.*.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=auth-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=che-*.filesys.full.*&target=che-*.proc.io.*_bytes.*,che-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,che-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=che-*.network.interface.in.bytes.*,che-*.network.interface.out.bytes.*&target=che-*.proc.fd.count.*,che-*.proc.psinfo.threads.*&target=che-*.proc.psinfo.rss.*,che-*.proc.psinfo.vsize.*,che-*.cgroup.memory.usage.*&target=che-*.proc.psinfo.?time.*,che-*.cgroup.cpuacct.stat.*.*&target=che-*.prometheus.wit.go_gc_duration_seconds_sum&target=che-*.prometheus.wit.http_*_size_bytes_sum.*&target=che-*.prometheus.wit.http_request_duration_microseconds_sum.*">che</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.filesys.full.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.filesys.full.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.proc.io.*_bytes.*&target=che-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=che-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.proc.io.*_bytes.*&target=che-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=che-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.network.interface.in.bytes.*&target=che-*.network.interface.out.bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.network.interface.in.bytes.*&target=che-*.network.interface.out.bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.proc.fd.count.*&target=che-*.proc.psinfo.threads.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.proc.fd.count.*&target=che-*.proc.psinfo.threads.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.proc.psinfo.rss.*&target=che-*.proc.psinfo.vsize.*&target=che-*.cgroup.memory.usage.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.proc.psinfo.rss.*&target=che-*.proc.psinfo.vsize.*&target=che-*.cgroup.memory.usage.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.proc.psinfo.?time.*&target=che-*.cgroup.cpuacct.stat.*.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.proc.psinfo.?time.*&target=che-*.cgroup.cpuacct.stat.*.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=core-*.filesys.full.*&target=core-*.proc.io.*_bytes.*,core-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,core-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=core-*.network.interface.in.bytes.*,core-*.network.interface.out.bytes.*&target=core-*.proc.fd.count.*,core-*.proc.psinfo.threads.*&target=core-*.proc.psinfo.rss.*,core-*.proc.psinfo.vsize.*,core-*.cgroup.memory.usage.*&target=core-*.proc.psinfo.?time.*,core-*.cgroup.cpuacct.stat.*.*&target=core-*.prometheus.wit.go_gc_duration_seconds_sum&target=core-*.prometheus.wit.http_*_size_bytes_sum.*&target=core-*.prometheus.wit.http_request_duration_microseconds_sum.*">core</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.filesys.full.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.filesys.full.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.proc.io.*_bytes.*&target=core-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=core-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.proc.io.*_bytes.*&target=core-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=core-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.network.interface.in.bytes.*&target=core-*.network.interface.out.bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.network.interface.in.bytes.*&target=core-*.network.interface.out.bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.proc.fd.count.*&target=core-*.proc.psinfo.threads.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.proc.fd.count.*&target=core-*.proc.psinfo.threads.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.proc.psinfo.rss.*&target=core-*.proc.psinfo.vsize.*&target=core-*.cgroup.memory.usage.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.proc.psinfo.rss.*&target=core-*.proc.psinfo.vsize.*&target=core-*.cgroup.memory.usage.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.proc.psinfo.?time.*&target=core-*.cgroup.cpuacct.stat.*.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.proc.psinfo.?time.*&target=core-*.cgroup.cpuacct.stat.*.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=f8notification-*.filesys.full.*&target=f8notification-*.proc.io.*_bytes.*,f8notification-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,f8notification-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=f8notification-*.network.interface.in.bytes.*,f8notification-*.network.interface.out.bytes.*&target=f8notification-*.proc.fd.count.*,f8notification-*.proc.psinfo.threads.*&target=f8notification-*.proc.psinfo.rss.*,f8notification-*.proc.psinfo.vsize.*,f8notification-*.cgroup.memory.usage.*&target=f8notification-*.proc.psinfo.?time.*,f8notification-*.cgroup.cpuacct.stat.*.*&target=f8notification-*.prometheus.wit.go_gc_duration_seconds_sum&target=f8notification-*.prometheus.wit.http_*_size_bytes_sum.*&target=f8notification-*.prometheus.wit.http_request_duration_microseconds_sum.*">f8notification</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.filesys.full.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.filesys.full.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.proc.io.*_bytes.*&target=f8notification-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=f8notification-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.proc.io.*_bytes.*&target=f8notification-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=f8notification-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.network.interface.in.bytes.*&target=f8notification-*.network.interface.out.bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.network.interface.in.bytes.*&target=f8notification-*.network.interface.out.bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.proc.fd.count.*&target=f8notification-*.proc.psinfo.threads.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.proc.fd.count.*&target=f8notification-*.proc.psinfo.threads.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.proc.psinfo.rss.*&target=f8notification-*.proc.psinfo.vsize.*&target=f8notification-*.cgroup.memory.usage.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.proc.psinfo.rss.*&target=f8notification-*.proc.psinfo.vsize.*&target=f8notification-*.cgroup.memory.usage.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.proc.psinfo.?time.*&target=f8notification-*.cgroup.cpuacct.stat.*.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.proc.psinfo.?time.*&target=f8notification-*.cgroup.cpuacct.stat.*.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8notification-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=f8tenant-*.filesys.full.*&target=f8tenant-*.proc.io.*_bytes.*,f8tenant-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,f8tenant-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=f8tenant-*.network.interface.in.bytes.*,f8tenant-*.network.interface.out.bytes.*&target=f8tenant-*.proc.fd.count.*,f8tenant-*.proc.psinfo.threads.*&target=f8tenant-*.proc.psinfo.rss.*,f8tenant-*.proc.psinfo.vsize.*,f8tenant-*.cgroup.memory.usage.*&target=f8tenant-*.proc.psinfo.?time.*,f8tenant-*.cgroup.cpuacct.stat.*.*&target=f8tenant-*.prometheus.wit.go_gc_duration_seconds_sum&target=f8tenant-*.prometheus.wit.http_*_size_bytes_sum.*&target=f8tenant-*.prometheus.wit.http_request_duration_microseconds_sum.*">f8tenant</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.filesys.full.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.filesys.full.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.proc.io.*_bytes.*&target=f8tenant-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=f8tenant-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.proc.io.*_bytes.*&target=f8tenant-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=f8tenant-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.network.interface.in.bytes.*&target=f8tenant-*.network.interface.out.bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.network.interface.in.bytes.*&target=f8tenant-*.network.interface.out.bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.proc.fd.count.*&target=f8tenant-*.proc.psinfo.threads.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.proc.fd.count.*&target=f8tenant-*.proc.psinfo.threads.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.proc.psinfo.rss.*&target=f8tenant-*.proc.psinfo.vsize.*&target=f8tenant-*.cgroup.memory.usage.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.proc.psinfo.rss.*&target=f8tenant-*.proc.psinfo.vsize.*&target=f8tenant-*.cgroup.memory.usage.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.proc.psinfo.?time.*&target=f8tenant-*.cgroup.cpuacct.stat.*.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.proc.psinfo.?time.*&target=f8tenant-*.cgroup.cpuacct.stat.*.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8tenant-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=f8toggles-*.filesys.full.*&target=f8toggles-*.proc.io.*_bytes.*,f8toggles-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,f8toggles-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=f8toggles-*.network.interface.in.bytes.*,f8toggles-*.network.interface.out.bytes.*&target=f8toggles-*.proc.fd.count.*,f8toggles-*.proc.psinfo.threads.*&target=f8toggles-*.proc.psinfo.rss.*,f8toggles-*.proc.psinfo.vsize.*,f8toggles-*.cgroup.memory.usage.*&target=f8toggles-*.proc.psinfo.?time.*,f8toggles-*.cgroup.cpuacct.stat.*.*&target=f8toggles-*.prometheus.wit.go_gc_duration_seconds_sum&target=f8toggles-*.prometheus.wit.http_*_size_bytes_sum.*&target=f8toggles-*.prometheus.wit.http_request_duration_microseconds_sum.*">f8toggles</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.filesys.full.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.filesys.full.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.proc.io.*_bytes.*&target=f8toggles-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=f8toggles-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.proc.io.*_bytes.*&target=f8toggles-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=f8toggles-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.network.interface.in.bytes.*&target=f8toggles-*.network.interface.out.bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.network.interface.in.bytes.*&target=f8toggles-*.network.interface.out.bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.proc.fd.count.*&target=f8toggles-*.proc.psinfo.threads.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.proc.fd.count.*&target=f8toggles-*.proc.psinfo.threads.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.proc.psinfo.rss.*&target=f8toggles-*.proc.psinfo.vsize.*&target=f8toggles-*.cgroup.memory.usage.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.proc.psinfo.rss.*&target=f8toggles-*.proc.psinfo.vsize.*&target=f8toggles-*.cgroup.memory.usage.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.proc.psinfo.?time.*&target=f8toggles-*.cgroup.cpuacct.stat.*.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.proc.psinfo.?time.*&target=f8toggles-*.cgroup.cpuacct.stat.*.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=osd-monitor-*.filesys.full.*&target=osd-monitor-*.proc.io.*_bytes.*,osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=osd-monitor-*.network.interface.in.bytes.*,osd-monitor-*.network.interface.out.bytes.*&target=osd-monitor-*.proc.fd.count.*,osd-monitor-*.proc.psinfo.threads.*&target=osd-monitor-*.proc.psinfo.rss.*,osd-monitor-*.proc.psinfo.vsize.*,osd-monitor-*.cgroup.memory.usage.*&target=osd-monitor-*.proc.psinfo.?time.*,osd-monitor-*.cgroup.cpuacct.stat.*.*&target=osd-monitor-*.prometheus.wit.go_gc_duration_seconds_sum&target=osd-monitor-*.prometheus.wit.http_*_size_bytes_sum.*&target=osd-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*">osd-monitor</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.filesys.full.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.filesys.full.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.proc.io.*_bytes.*&target=osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.proc.io.*_bytes.*&target=osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.network.interface.in.bytes.*&target=osd-monitor-*.network.interface.out.bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.network.interface.in.bytes.*&target=osd-monitor-*.network.interface.out.bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.proc.fd.count.*&target=osd-monitor-*.proc.psinfo.threads.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.proc.fd.count.*&target=osd-monitor-*.proc.psinfo.threads.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.proc.psinfo.rss.*&target=osd-monitor-*.proc.psinfo.vsize.*&target=osd-monitor-*.cgroup.memory.usage.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.proc.psinfo.rss.*&target=osd-monitor-*.proc.psinfo.vsize.*&target=osd-monitor-*.cgroup.memory.usage.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.proc.psinfo.?time.*&target=osd-monitor-*.cgroup.cpuacct.stat.*.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.proc.psinfo.?time.*&target=osd-monitor-*.cgroup.cpuacct.stat.*.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=oso-monitor-*.filesys.full.*&target=oso-monitor-*.proc.io.*_bytes.*,oso-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,oso-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=oso-monitor-*.network.interface.in.bytes.*,oso-monitor-*.network.interface.out.bytes.*&target=oso-monitor-*.proc.fd.count.*,oso-monitor-*.proc.psinfo.threads.*&target=oso-monitor-*.proc.psinfo.rss.*,oso-monitor-*.proc.psinfo.vsize.*,oso-monitor-*.cgroup.memory.usage.*&target=oso-monitor-*.proc.psinfo.?time.*,oso-monitor-*.cgroup.cpuacct.stat.*.*&target=oso-monitor-*.prometheus.wit.go_gc_duration_seconds_sum&target=oso-monitor-*.prometheus.wit.http_*_size_bytes_sum.*&target=oso-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*">oso-monitor</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.filesys.full.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.filesys.full.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.proc.io.*_bytes.*&target=oso-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=oso-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.proc.io.*_bytes.*&target=oso-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=oso-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.network.interface.in.bytes.*&target=oso-monitor-*.network.interface.out.bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.network.interface.in.bytes.*&target=oso-monitor-*.network.interface.out.bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.proc.fd.count.*&target=oso-monitor-*.proc.psinfo.threads.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.proc.fd.count.*&target=oso-monitor-*.proc.psinfo.threads.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.proc.psinfo.rss.*&target=oso-monitor-*.proc.psinfo.vsize.*&target=oso-monitor-*.cgroup.memory.usage.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.proc.psinfo.rss.*&target=oso-monitor-*.proc.psinfo.vsize.*&target=oso-monitor-*.cgroup.memory.usage.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.proc.psinfo.?time.*&target=oso-monitor-*.cgroup.cpuacct.stat.*.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.proc.psinfo.?time.*&target=oso-monitor-*.cgroup.cpuacct.stat.*.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=oso-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=keycloak-server-*.filesys.full.*&target=keycloak-server-*.proc.io.*_bytes.*,keycloak-server-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,keycloak-server-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=keycloak-server-*.network.interface.in.bytes.*,keycloak-server-*.network.interface.out.bytes.*&target=keycloak-server-*.proc.fd.count.*,keycloak-server-*.proc.psinfo.threads.*&target=keycloak-server-*.proc.psinfo.rss.*,keycloak-server-*.proc.psinfo.vsize.*,keycloak-server-*.cgroup.memory.usage.*&target=keycloak-server-*.proc.psinfo.?time.*,keycloak-server-*.cgroup.cpuacct.stat.*.*&target=keycloak-server-*.prometheus.wit.go_gc_duration_seconds_sum&target=keycloak-server-*.prometheus.wit.http_*_size_bytes_sum.*&target=keycloak-server-*.prometheus.wit.http_request_duration_microseconds_sum.*">keycloak-server</a></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.filesys.full.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.filesys.full.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.proc.io.*_bytes.*&target=keycloak-server-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=keycloak-server-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.proc.io.*_bytes.*&target=keycloak-server-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=keycloak-server-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.network.interface.in.bytes.*&target=keycloak-server-*.network.interface.out.bytes.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.network.interface.in.bytes.*&target=keycloak-server-*.network.interface.out.bytes.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.proc.fd.count.*&target=keycloak-server-*.proc.psinfo.threads.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.proc.fd.count.*&target=keycloak-server-*.proc.psinfo.threads.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.proc.psinfo.rss.*&target=keycloak-server-*.proc.psinfo.vsize.*&target=keycloak-server-*.cgroup.memory.usage.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.proc.psinfo.rss.*&target=keycloak-server-*.proc.psinfo.vsize.*&target=keycloak-server-*.cgroup.memory.usage.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.proc.psinfo.?time.*&target=keycloak-server-*.cgroup.cpuacct.stat.*.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.proc.psinfo.?time.*&target=keycloak-server-*.cgroup.cpuacct.stat.*.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.http_*_size_bytes_sum.*"></td>
 <td>
-<img class="pcp" src="/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=keycloak-server-*.prometheus.wit.http_request_duration_microseconds_sum.*"></td>
 </tr>
 <tr></tr>
 <tr>

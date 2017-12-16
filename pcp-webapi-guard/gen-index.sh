@@ -91,7 +91,7 @@ echo '">'$component'</a></td>'
 # individual sparklines for same columns
 for colno in `seq $node_num_columns`; do
     echo '<td>'
-    echo -n '<img class="pcp" src="'$http_prefix'/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target='$component'-*.'
+    echo -n '<img class="pcp" src="'$http_prefix'/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target='$component'-*.'
     node_column_metrics $colno $component '&target='$component'-*.' 
     echo '"></td>'
 done
@@ -125,7 +125,7 @@ do
     # individual sparklines for same columns
     for colno in `seq $component_num_columns`; do
         echo '<td>'
-        echo -n '<img class="pcp" src="'$http_prefix'/graphite/render/?from=-6h&until=now&width=100&height=40&graphOnly=true&lineWidth=0.7&target='
+        echo -n '<img class="pcp" src="'$http_prefix'/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target='
         component_column_metrics $colno $component'-*.' '&target=' 
         echo '"></td>'
     done
