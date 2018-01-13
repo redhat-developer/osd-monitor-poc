@@ -93,7 +93,7 @@ objects:
                   name: f8tenant
                   key: postgres.password
             - name: PMCD_PORT
-              value: 54321
+              value: "54321"
           ports:
             - containerPort: 54321
               protocol: TCP
@@ -120,7 +120,7 @@ objects:
                   name: auth
                   key: db.password
             - name: PMCD_PORT
-              value: 54322
+              value: "54322"
           ports:
             - containerPort: 54322
               protocol: TCP
@@ -147,7 +147,7 @@ objects:
                   name: core
                   key: db.password
             - name: PMCD_PORT
-              value: 54323
+              value: "54323"
           ports:
             - containerPort: 54323
               protocol: TCP
