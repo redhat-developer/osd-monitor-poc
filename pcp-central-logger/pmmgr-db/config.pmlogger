@@ -1,7 +1,10 @@
 log advisory on default {
 	postgresql.stat.user_indexes
+	postgresql.statio.user_indexes
 	postgresql.stat.user_tables
+	postgresql.statio.user_tables
 	postgresql.stat.database_conflicts
+	postgresql.stat.database
 	postgresql.stat.activity
 }
 
