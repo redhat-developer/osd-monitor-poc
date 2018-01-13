@@ -36,4 +36,4 @@ echo '$password='"'"$DB_PASSWORD"'"';' >> $conf # protect $punctuation within
 echo '$os_user="'`whoami`'";' >> $conf
 
 cd $PCP_LOG_DIR
-exec $PCP_BINADM_DIR/pmcd -l /dev/force-logging-to-stderr -f -A -H $PCP_HOSTNAME
+exec $PCP_BINADM_DIR/pmcd -p $PMCD_PORT -l /dev/force-logging-to-stderr -f -A -H $PCP_HOSTNAME

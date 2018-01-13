@@ -1,0 +1,11 @@
+log advisory on default {
+	postgresql.stat.user_indexes
+	postgresql.stat.user_tables
+	postgresql.stat.database_conflicts
+	postgresql.stat.activity
+}
+
+[access]
+disallow .* : all;
+disallow :* : all;
+allow local:* : enquire;

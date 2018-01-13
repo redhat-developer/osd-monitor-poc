@@ -92,8 +92,10 @@ objects:
                 secretKeyRef:
                   name: f8tenant
                   key: postgres.password
+            - name: PMCD_PORT
+              value: 54321
           ports:
-            - containerPort: 44321
+            - containerPort: 54321
               protocol: TCP
         - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
           name: pcp-postgresql-auth
@@ -117,8 +119,10 @@ objects:
                 secretKeyRef:
                   name: auth
                   key: db.password
+            - name: PMCD_PORT
+              value: 54322
           ports:
-            - containerPort: 44321
+            - containerPort: 54322
               protocol: TCP
         - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
           name: pcp-postgresql-core
@@ -142,8 +146,10 @@ objects:
                 secretKeyRef:
                   name: core
                   key: db.password
+            - name: PMCD_PORT
+              value: 54323
           ports:
-            - containerPort: 44321
+            - containerPort: 54323
               protocol: TCP
         dnsPolicy: ClusterFirst
         restartPolicy: Always
