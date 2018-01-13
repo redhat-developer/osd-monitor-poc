@@ -12,6 +12,7 @@ COPY pmmgr+pmcd.sh   /pmmgr+pmcd.sh
 
 ADD pmmgr-node /etc/pcp/pmmgr-node
 ADD pmmgr-pod /etc/pcp/pmmgr-pod
+ADD pmmgr-db /etc/pcp/pmmgr-db
 
 RUN chmod +x /usr/bin/fix-permissions && \
     /usr/bin/fix-permissions /etc/pcp && \
