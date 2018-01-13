@@ -1,1 +1,1 @@
--t 30 -c /etc/pcp/pmmgr-node/config.pmlogger
+-t 60 -c /etc/pcp/pmmgr-db/config.pmlogger
