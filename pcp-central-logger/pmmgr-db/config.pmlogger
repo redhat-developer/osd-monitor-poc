@@ -6,6 +6,7 @@ log advisory on default {
 	postgresql.stat.database_conflicts
 	postgresql.stat.database
 	postgresql.stat.activity
+	postgresql.stat.bgwriter
 }
 
 [access]
