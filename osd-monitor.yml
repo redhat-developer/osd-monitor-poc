@@ -67,6 +67,84 @@ objects:
             initiaDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
+        - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
+          name: pcp-postgresql-f8tenant
+          env:
+            - name: PCP_HOSTNAME
+              value: DB-f8tenant
+            - name: DB_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: f8tenant
+                  key: postgres.host
+            - name: DB_DB
+              valueFrom:
+                secretKeyRef:
+                  name: f8tenant
+                  key: postgres.database
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: f8tenant
+                  key: postgres.user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: f8tenant
+                  key: postgres.password
+          ports:
+            - containerPort: 44321
+              protocol: TCP
+        - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
+          name: pcp-postgresql-auth
+          env:
+            - name: PCP_HOSTNAME
+              value: DB-auth
+            - name: DB_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: auth
+                  key: db.host
+            - name: DB_DB
+              value: postgres
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: auth
+                  key: db.user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: auth
+                  key: db.password
+          ports:
+            - containerPort: 44321
+              protocol: TCP
+        - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
+          name: pcp-postgresql-core
+          env:
+            - name: PCP_HOSTNAME
+              value: DB-f8core
+            - name: DB_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: core
+                  key: db.host
+            - name: DB_DB
+              value: postgres
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: core
+                  key: db.user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: core
+                  key: db.password
+          ports:
+            - containerPort: 44321
+              protocol: TCP
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}

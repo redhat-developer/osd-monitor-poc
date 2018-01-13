@@ -1,0 +1,25 @@
+FROM centos:7
+
+# Install pcp - collection basics
+COPY pcp.repo /etc/yum.repos.d/pcp.repo
+RUN yum install -y pcp pcp-pmda-postgresql && yum clean all
+
+COPY fix-permissions /usr/bin/fix-permissions
+COPY pmcd.sh   /pmcd.sh
+
+RUN chmod +x /usr/bin/fix-permissions && \
+    /usr/bin/fix-permissions /etc/pcp && \
+    /usr/bin/fix-permissions /var/lib/pcp && \  
+    /usr/bin/fix-permissions /var/log/pcp
+
+ENV DB_HOSTNAME ""
+ENV DB_PORT "5432"
+ENV DB_DB ""
+ENV DB_USER ""
+ENV DB_PASSWORD ""
+ENV PCP_HOSTNAME "DB-unset"
+
+EXPOSE 44321
+
+VOLUME /var/log/pcp
+ENTRYPOINT [ "/bin/sh", "/pmcd.sh" ]

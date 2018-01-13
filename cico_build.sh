@@ -32,6 +32,7 @@ for subdir in pcp-node-collector \
                   pcp-webapi-guard \
                   pcp-bayesian-central-logger \
                   pcp-bayesian-webapi-guard \
+                  pcp-postgresql-monitor \
                   mm-zabbix-relay \
                   oso-pcp-prometheus \
                   oso-webapi-guard \
