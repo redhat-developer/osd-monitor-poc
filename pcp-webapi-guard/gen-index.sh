@@ -110,7 +110,7 @@ for colno in `seq $component_num_columns`; do
 done
 echo '</tr>'
 
-for component in auth che core f8notification f8tenant f8toggles osd-monitor oso-monitor keycloak-server 
+for component in auth che core f8notification f8osoproxy f8tenant f8toggles osd-monitor oso-monitor keycloak-server 
 do
     echo '<tr>'
     
