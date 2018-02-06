@@ -9,6 +9,7 @@ RUN yum install -y centos-release-openshift-origin && yum install -y origin-clie
 
 COPY fix-permissions /usr/bin/fix-permissions
 COPY pmmgr+pmcd.sh   /pmmgr+pmcd.sh
+COPY pminfo-sleep.sh /pminfo-sleep.sh
 
 ADD pmmgr-node /etc/pcp/pmmgr-node
 ADD pmmgr-pod /etc/pcp/pmmgr-pod
