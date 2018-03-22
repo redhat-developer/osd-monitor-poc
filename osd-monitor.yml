@@ -151,6 +151,36 @@ objects:
           ports:
             - containerPort: 54323
               protocol: TCP
+        - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
+          name: pcp-postgresql-jenkins-proxy
+          env:
+            - name: PCP_HOSTNAME
+              value: DB-jenkins-proxy
+            - name: DB_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: jenkins-proxy
+                  key: postgres.host
+            - name: DB_DB
+              valueFrom:
+                secretKeyRef:
+                  name: jenkins-proxy
+                  key: postgres.database
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: jenkins-proxy
+                  key: postgres.user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: jenkins-proxy
+                  key: postgres.password
+            - name: PMCD_PORT
+              value: "54324"
+          ports:
+            - containerPort: 54324
+              protocol: TCP
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}
