@@ -1,0 +1,23 @@
+FROM registry.devshift.net/osio-prod/base/osd-loggers:latest
+
+COPY fix-permissions /usr/bin/fix-permissions
+COPY pmmgr+pmcd.sh   /pmmgr+pmcd.sh
+COPY pminfo-sleep.sh /pminfo-sleep.sh
+
+ADD pmmgr-node /etc/pcp/pmmgr-node
+ADD pmmgr-pod /etc/pcp/pmmgr-pod
+ADD pmmgr-db /etc/pcp/pmmgr-db
+
+RUN chmod +x /usr/bin/fix-permissions && \
+    /usr/bin/fix-permissions /etc/pcp && \
+    /usr/bin/fix-permissions /var/lib/pcp && \  
+    /usr/bin/fix-permissions /var/log/pcp
+
+ENV MALLOC_ARENA_MAX 1
+ENV ZABBIX_SERVER    localhost
+
+ENV VALGRIND ""
+# ENV VALGRIND /usr/bin/valgrind
+
+VOLUME /var/log/pcp
+ENTRYPOINT [ "/bin/sh", "/pmmgr+pmcd.sh" ]
