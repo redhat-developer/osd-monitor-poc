@@ -1,4 +1,4 @@
-FROM registry.devshift.net/osio-prod/base/pcp:latest
+FROM prod.registry.devshift.net/osio-prod/base/pcp:latest
 
 # Expose pmwebd's main port on the host interface
 EXPOSE 44323
