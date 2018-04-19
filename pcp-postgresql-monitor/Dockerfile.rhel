@@ -1,4 +1,4 @@
-FROM registry.devshift.net/osio-prod/base/pcp:latest
+FROM prod.registry.devshift.net/osio-prod/base/pcp:latest
 
 COPY fix-permissions /usr/bin/fix-permissions
 COPY pmcd.sh   /pmcd.sh
