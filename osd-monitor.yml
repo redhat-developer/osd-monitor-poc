@@ -31,12 +31,18 @@ objects:
           volumeMounts:
             - name: pcp-logs
               mountPath: /var/log/pcp
-          resources: {}
           env:
             - name: ZABBIX_SERVER
               value: zabbix.devshift.net
             - name: VALGRIND
               value: ~
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 3000Mi
+            requests:
+              cpu: 1m
+              memory: 500Mi
         - image: 'registry.devshift.net/perf/pcp-central-webapi:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
@@ -52,6 +58,13 @@ objects:
             initiaDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
+          resources:
+            limits:
+              cpu: 8000m
+              memory: 8000Mi
+            requests:
+              cpu: 1m
+              memory: 500Mi
         - image: 'registry.devshift.net/perf/pcp-webapi-guard:${IMAGE_TAG}'
           name: pcp-webapi-guard
           volumeMounts:
@@ -67,6 +80,13 @@ objects:
             initiaDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
+          resources:
+            limits:
+              cpu: 400m
+              memory: 500Mi
+            requests:
+              cpu: 1m
+              memory: 50Mi
         - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
           name: pcp-postgresql-f8tenant
           env:
@@ -97,6 +117,13 @@ objects:
           ports:
             - containerPort: 54321
               protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 200Mi
+            requests:
+              cpu: 1m
+              memory: 50Mi
         - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
           name: pcp-postgresql-auth
           env:
@@ -124,6 +151,13 @@ objects:
           ports:
             - containerPort: 54322
               protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 200Mi
+            requests:
+              cpu: 1m
+              memory: 50Mi
         - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
           name: pcp-postgresql-core
           env:
@@ -151,6 +185,13 @@ objects:
           ports:
             - containerPort: 54323
               protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 200Mi
+            requests:
+              cpu: 1m
+              memory: 50Mi
         - image: 'registry.devshift.net/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
           name: pcp-postgresql-jenkins-proxy
           env:
@@ -181,6 +222,13 @@ objects:
           ports:
             - containerPort: 54324
               protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 200Mi
+            requests:
+              cpu: 1m
+              memory: 50Mi
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}
@@ -259,10 +307,16 @@ objects:
               mountPath: /var/log/pcp
             - name: oso-secrets
               mountPath: /run/secrets/oso-monitor
-          resources: {}
           ports:
             - containerPort: 44321
               protocol: TCP
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 3000Mi
+            requests:
+              cpu: 1m
+              memory: 500Mi
         - image: 'registry.devshift.net/perf/pcp-central-webapi:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
@@ -278,6 +332,13 @@ objects:
             initiaDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
+          resources:
+            limits:
+              cpu: 8000m
+              memory: 8000Mi
+            requests:
+              cpu: 1m
+              memory: 500Mi
         - image: 'registry.devshift.net/perf/oso-central-webapi-guard:${IMAGE_TAG}'
           name: oso-central-webapi-guard
           volumeMounts:
@@ -286,6 +347,13 @@ objects:
           ports:
             - containerPort: 8001
               protocol: TCP
+          resources:
+            limits:
+              cpu: 400m
+              memory: 500Mi
+            requests:
+              cpu: 1m
+              memory: 50Mi
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}

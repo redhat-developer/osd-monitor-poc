@@ -134,6 +134,27 @@ go http latency</th>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=che-*.prometheus.wit.http_request_duration_microseconds_sum.*&target=che-*.prometheus.wit.traefik_request_duration_seconds_sum.*"></td>
 </tr>
 <tr>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=rhche-*.filesys.full.*&target=rhche-*.proc.io.*_bytes.*,rhche-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,rhche-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=rhche-*.network.interface.in.bytes.*,rhche-*.network.interface.out.bytes.*&target=rhche-*.proc.fd.count.*,rhche-*.proc.psinfo.threads.*&target=rhche-*.proc.psinfo.rss.*,rhche-*.proc.psinfo.vsize.*,rhche-*.cgroup.memory.usage.*&target=rhche-*.proc.psinfo.?time.*,rhche-*.cgroup.cpuacct.stat.*.*&target=rhche-*.prometheus.wit.go_gc_duration_seconds_sum&target=rhche-*.prometheus.wit.http_*_size_bytes_sum.*,rhche-*.prometheus.wit.traefik_requests_total.*&target=rhche-*.prometheus.wit.http_request_duration_microseconds_sum.*,rhche-*.prometheus.wit.traefik_request_duration_seconds_sum.*">rhche</a></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=rhche-*.filesys.full.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=rhche-*.proc.io.*_bytes.*&target=rhche-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=rhche-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=rhche-*.network.interface.in.bytes.*&target=rhche-*.network.interface.out.bytes.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=rhche-*.proc.fd.count.*&target=rhche-*.proc.psinfo.threads.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=rhche-*.proc.psinfo.rss.*&target=rhche-*.proc.psinfo.vsize.*&target=rhche-*.cgroup.memory.usage.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=rhche-*.proc.psinfo.?time.*&target=rhche-*.cgroup.cpuacct.stat.*.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=rhche-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=rhche-*.prometheus.wit.http_*_size_bytes_sum.*&target=rhche-*.prometheus.wit.traefik_requests_total.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=rhche-*.prometheus.wit.http_request_duration_microseconds_sum.*&target=rhche-*.prometheus.wit.traefik_request_duration_seconds_sum.*"></td>
+</tr>
+<tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=core-*.filesys.full.*&target=core-*.proc.io.*_bytes.*,core-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,core-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=core-*.network.interface.in.bytes.*,core-*.network.interface.out.bytes.*&target=core-*.proc.fd.count.*,core-*.proc.psinfo.threads.*&target=core-*.proc.psinfo.rss.*,core-*.proc.psinfo.vsize.*,core-*.cgroup.memory.usage.*&target=core-*.proc.psinfo.?time.*,core-*.cgroup.cpuacct.stat.*.*&target=core-*.prometheus.wit.go_gc_duration_seconds_sum&target=core-*.prometheus.wit.http_*_size_bytes_sum.*,core-*.prometheus.wit.traefik_requests_total.*&target=core-*.prometheus.wit.http_request_duration_microseconds_sum.*,core-*.prometheus.wit.traefik_request_duration_seconds_sum.*">core</a></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=core-*.filesys.full.*"></td>
@@ -237,6 +258,48 @@ go http latency</th>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.prometheus.wit.http_*_size_bytes_sum.*&target=f8toggles-*.prometheus.wit.traefik_requests_total.*"></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8toggles-*.prometheus.wit.http_request_duration_microseconds_sum.*&target=f8toggles-*.prometheus.wit.traefik_request_duration_seconds_sum.*"></td>
+</tr>
+<tr>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=jenkins-idler-*.filesys.full.*&target=jenkins-idler-*.proc.io.*_bytes.*,jenkins-idler-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,jenkins-idler-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=jenkins-idler-*.network.interface.in.bytes.*,jenkins-idler-*.network.interface.out.bytes.*&target=jenkins-idler-*.proc.fd.count.*,jenkins-idler-*.proc.psinfo.threads.*&target=jenkins-idler-*.proc.psinfo.rss.*,jenkins-idler-*.proc.psinfo.vsize.*,jenkins-idler-*.cgroup.memory.usage.*&target=jenkins-idler-*.proc.psinfo.?time.*,jenkins-idler-*.cgroup.cpuacct.stat.*.*&target=jenkins-idler-*.prometheus.wit.go_gc_duration_seconds_sum&target=jenkins-idler-*.prometheus.wit.http_*_size_bytes_sum.*,jenkins-idler-*.prometheus.wit.traefik_requests_total.*&target=jenkins-idler-*.prometheus.wit.http_request_duration_microseconds_sum.*,jenkins-idler-*.prometheus.wit.traefik_request_duration_seconds_sum.*">jenkins-idler</a></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-idler-*.filesys.full.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-idler-*.proc.io.*_bytes.*&target=jenkins-idler-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=jenkins-idler-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-idler-*.network.interface.in.bytes.*&target=jenkins-idler-*.network.interface.out.bytes.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-idler-*.proc.fd.count.*&target=jenkins-idler-*.proc.psinfo.threads.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-idler-*.proc.psinfo.rss.*&target=jenkins-idler-*.proc.psinfo.vsize.*&target=jenkins-idler-*.cgroup.memory.usage.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-idler-*.proc.psinfo.?time.*&target=jenkins-idler-*.cgroup.cpuacct.stat.*.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-idler-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-idler-*.prometheus.wit.http_*_size_bytes_sum.*&target=jenkins-idler-*.prometheus.wit.traefik_requests_total.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-idler-*.prometheus.wit.http_request_duration_microseconds_sum.*&target=jenkins-idler-*.prometheus.wit.traefik_request_duration_seconds_sum.*"></td>
+</tr>
+<tr>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=jenkins-proxy-*.filesys.full.*&target=jenkins-proxy-*.proc.io.*_bytes.*,jenkins-proxy-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,jenkins-proxy-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=jenkins-proxy-*.network.interface.in.bytes.*,jenkins-proxy-*.network.interface.out.bytes.*&target=jenkins-proxy-*.proc.fd.count.*,jenkins-proxy-*.proc.psinfo.threads.*&target=jenkins-proxy-*.proc.psinfo.rss.*,jenkins-proxy-*.proc.psinfo.vsize.*,jenkins-proxy-*.cgroup.memory.usage.*&target=jenkins-proxy-*.proc.psinfo.?time.*,jenkins-proxy-*.cgroup.cpuacct.stat.*.*&target=jenkins-proxy-*.prometheus.wit.go_gc_duration_seconds_sum&target=jenkins-proxy-*.prometheus.wit.http_*_size_bytes_sum.*,jenkins-proxy-*.prometheus.wit.traefik_requests_total.*&target=jenkins-proxy-*.prometheus.wit.http_request_duration_microseconds_sum.*,jenkins-proxy-*.prometheus.wit.traefik_request_duration_seconds_sum.*">jenkins-proxy</a></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.filesys.full.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.proc.io.*_bytes.*&target=jenkins-proxy-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=jenkins-proxy-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.network.interface.in.bytes.*&target=jenkins-proxy-*.network.interface.out.bytes.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.proc.fd.count.*&target=jenkins-proxy-*.proc.psinfo.threads.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.proc.psinfo.rss.*&target=jenkins-proxy-*.proc.psinfo.vsize.*&target=jenkins-proxy-*.cgroup.memory.usage.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.proc.psinfo.?time.*&target=jenkins-proxy-*.cgroup.cpuacct.stat.*.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.prometheus.wit.go_gc_duration_seconds_sum"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.prometheus.wit.http_*_size_bytes_sum.*&target=jenkins-proxy-*.prometheus.wit.traefik_requests_total.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.prometheus.wit.http_request_duration_microseconds_sum.*&target=jenkins-proxy-*.prometheus.wit.traefik_request_duration_seconds_sum.*"></td>
 </tr>
 <tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=osd-monitor-*.filesys.full.*&target=osd-monitor-*.proc.io.*_bytes.*,osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=osd-monitor-*.network.interface.in.bytes.*,osd-monitor-*.network.interface.out.bytes.*&target=osd-monitor-*.proc.fd.count.*,osd-monitor-*.proc.psinfo.threads.*&target=osd-monitor-*.proc.psinfo.rss.*,osd-monitor-*.proc.psinfo.vsize.*,osd-monitor-*.cgroup.memory.usage.*&target=osd-monitor-*.proc.psinfo.?time.*,osd-monitor-*.cgroup.cpuacct.stat.*.*&target=osd-monitor-*.prometheus.wit.go_gc_duration_seconds_sum&target=osd-monitor-*.prometheus.wit.http_*_size_bytes_sum.*,osd-monitor-*.prometheus.wit.traefik_requests_total.*&target=osd-monitor-*.prometheus.wit.http_request_duration_microseconds_sum.*,osd-monitor-*.prometheus.wit.traefik_request_duration_seconds_sum.*">osd-monitor</a></td>

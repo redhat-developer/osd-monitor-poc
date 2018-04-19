@@ -26,7 +26,7 @@ TAG=$(echo $GIT_COMMIT | cut -c1-${DEVSHIFT_TAG_LEN})
 
 if [ "$TARGET" == "rhel" ]; then
     DOCKERFILE="Dockerfile.rhel"
-    REGISTRY=${DOCKER_REGISTRY:-"registry.devshift.net/osio-prod"}
+    REGISTRY=${DOCKER_REGISTRY:-"push.registry.devshift.net/osio-prod"}
 else
     DOCKERFILE="Dockerfile"
     REGISTRY="push.registry.devshift.net"
