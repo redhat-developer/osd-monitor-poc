@@ -26,7 +26,7 @@ objects:
             persistentVolumeClaim:
               claimName: osd-monitor-pcplogs
         containers:
-        - image: 'registry.devshift.net/perf/pcp-bayesian-central-logger:${IMAGE_TAG}'
+        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-bayesian-central-logger:${IMAGE_TAG}'
           name: pcp-bayesian-central-logger
           volumeMounts:
             - name: pcp-logs
@@ -37,7 +37,7 @@ objects:
               value: zabbix.devshift.net
             - name: VALGRIND
               value: ~
-        - image: 'registry.devshift.net/perf/pcp-central-webapi:${IMAGE_TAG}'
+        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-central-webapi:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
             - name: pcp-logs
@@ -52,7 +52,7 @@ objects:
             initiaDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
-        - image: 'registry.devshift.net/perf/pcp-bayesian-webapi-guard:${IMAGE_TAG}'
+        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-bayesian-webapi-guard:${IMAGE_TAG}'
           name: pcp-webapi-guard
           volumeMounts:
             - name: pcp-logs
