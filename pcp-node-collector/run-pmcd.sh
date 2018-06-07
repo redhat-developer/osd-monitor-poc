@@ -28,4 +28,4 @@ cd $PCP_VAR_DIR/pmns
 ./Rebuild
 
 cd $PCP_LOG_DIR
-exec /usr/libexec/pcp/bin/pmcd -l /dev/no-such-file -f -A -H $PCP_NODE_HOSTNAME
+exec /usr/libexec/pcp/bin/pmcd -l - -f -A -H $PCP_NODE_HOSTNAME

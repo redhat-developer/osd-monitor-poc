@@ -28,7 +28,7 @@ cd $PCP_LOG_DIR
 
 : "${PCP_HOSTNAME:=`hostname`}"
 # possibly: filter pod name?
-exec /usr/libexec/pcp/bin/pmcd -l /dev/no-such-file -f -A -H $PCP_HOSTNAME
+exec /usr/libexec/pcp/bin/pmcd -l - -f -A -H $PCP_HOSTNAME
 ) &
 sleep 5 # give time for pmcd's startup messages, so it doesn't intermix with pmmgr's
 

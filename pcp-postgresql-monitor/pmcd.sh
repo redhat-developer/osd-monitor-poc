@@ -14,6 +14,8 @@ echo "pmcd     2  dso  pmcd_init   $PCP_PMDAS_DIR/pmcd/pmda_pmcd.so"   >> $PCP_P
 echo "proc     3  dso  proc_init   $PCP_PMDAS_DIR/proc/pmda_proc.so"   >> $PCP_PMCDCONF_PATH;
 echo "linux   60  dso  linux_init  $PCP_PMDAS_DIR/linux/pmda_linux.so" >> $PCP_PMCDCONF_PATH;
 echo "postgresql      110     pipe    binary          perl /var/lib/pcp/pmdas/postgresql/pmdapostgresql.pl" >> $PCP_PMCDCONF_PATH;
+#                                                                                                         ^^^^^
+#                                                                           for stderr logging, need also: -l -, but no perl/pmda support yet
 
 rm -f $PCP_VAR_DIR/pmns/root_xfs $PCP_VAR_DIR/pmns/root_jbd2 $PCP_VAR_DIR/pmns/root_root $PCP_VAR_DIR/pmns/root
 echo 'postgresql	110:*:*' > $PCP_VAR_DIR/pmns/postgresql
@@ -36,4 +38,4 @@ echo '$password='"'"$DB_PASSWORD"'"';' >> $conf # protect $punctuation within
 echo '$os_user="'`whoami`'";' >> $conf
 
 cd $PCP_LOG_DIR
-exec $PCP_BINADM_DIR/pmcd -p $PMCD_PORT -l /dev/force-logging-to-stderr -f -A -H $PCP_HOSTNAME
+exec $PCP_BINADM_DIR/pmcd -p $PMCD_PORT -l - -f -A -H $PCP_HOSTNAME
