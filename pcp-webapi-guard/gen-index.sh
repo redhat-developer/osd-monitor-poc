@@ -56,9 +56,9 @@ component_column_metrics() {
         4) echo -n $2'proc.fd.count.*'$3$2'proc.psinfo.threads.*' ;;
         5) echo -n $2'proc.psinfo.rss.*'$3$2'proc.psinfo.vsize.*'$3$2'cgroup.memory.usage.*' ;;
         6) echo -n $2'proc.psinfo.?time.*'$3$2'cgroup.cpuacct.stat.*.*' ;;
-        7) echo -n $2'prometheus.wit.go_gc_duration_seconds_sum' ;;
-        8) echo -n $2'prometheus.wit.http_*_size_bytes_sum.*'$3$2'prometheus.wit.traefik_requests_total.*' ;;
-        9) echo -n $2'prometheus.wit.http_request_duration_microseconds_sum.*'$3$2'prometheus.wit.traefik_request_duration_seconds_sum.*' ;;
+        7) echo -n $2'prometheus.*.go_gc_duration_seconds_sum' ;;
+        8) echo -n $2'prometheus.*.http_*_size_bytes_sum.*'$3$2'prometheus.*.traefik_requests_total.*' ;;
+        9) echo -n $2'prometheus.*.http_request_duration_microseconds_sum.*'$3$2'prometheus.*.traefik_request_duration_seconds_sum.*' ;;
         *) exit 1 ;;
     esac
 }
@@ -110,7 +110,7 @@ for colno in `seq $component_num_columns`; do
 done
 echo '</tr>'
 
-for component in auth che rhche core f8notification f8osoproxy f8tenant f8toggles jenkins-idler jenkins-proxy osd-monitor oso-monitor keycloak-server 
+for component in auth che rhche core f8notification f8osoproxy f8tenant f8toggles jenkins-idler jenkins-proxy osd-monitor oso-monitor keycloak-server test-keeper work-in-progress hook
 do
     echo '<tr>'
     
