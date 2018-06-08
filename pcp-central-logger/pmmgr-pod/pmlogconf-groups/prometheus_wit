@@ -1,7 +1,0 @@
-#pmlogconf-setup 2.0
-ident prometheus metrics to poll regularly
-# numerous metrics so collect them less frequently
-delta 2 minutes
-# with PMNS_NAMES_CHANGE support im pmlogger, we can speculatively add it all here without probe
-force include
-	prometheus
