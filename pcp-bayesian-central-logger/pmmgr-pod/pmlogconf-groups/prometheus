@@ -1,0 +1,5 @@
+#pmlogconf-setup 2.0
+ident prometheus metrics to poll regularly
+# with pmlogger's PMNS_CHANGED machinery, we can just 'force-include' this for all pods
+force include
+	prometheus

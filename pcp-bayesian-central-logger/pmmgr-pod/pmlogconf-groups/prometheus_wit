@@ -1,5 +1,0 @@
-#pmlogconf-setup 2.0
-ident prometheus metrics to poll regularly from f8-wit/golang type pods
-# unforunately, we need to use a specific metric, rather than assert a nonempty hierarchy
-probe prometheus.wit.go_goroutines exists ? include : exclude
-	prometheus.wit
