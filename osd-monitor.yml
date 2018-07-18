@@ -26,7 +26,7 @@ objects:
             persistentVolumeClaim:
               claimName: osd-monitor-pcplogs
         containers:
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-central-logger:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_CENTRAL_LOGGER}:${IMAGE_TAG}'
           name: pcp-central-logger
           volumeMounts:
             - name: pcp-logs
@@ -43,7 +43,7 @@ objects:
             requests:
               cpu: 1m
               memory: 500Mi
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-central-webapi:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_CENTRAL_WEBAPI}:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
             - name: pcp-logs
@@ -65,7 +65,7 @@ objects:
             requests:
               cpu: 1m
               memory: 500Mi
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-webapi-guard:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_WEBAPI_GUARD}:${IMAGE_TAG}'
           name: pcp-webapi-guard
           volumeMounts:
             - name: pcp-logs
@@ -87,7 +87,7 @@ objects:
             requests:
               cpu: 1m
               memory: 50Mi
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_POSTGRESQL}:${IMAGE_TAG}'
           name: pcp-postgresql-f8tenant
           env:
             - name: PCP_HOSTNAME
@@ -124,7 +124,7 @@ objects:
             requests:
               cpu: 1m
               memory: 50Mi
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_POSTGRESQL}:${IMAGE_TAG}'
           name: pcp-postgresql-auth
           env:
             - name: PCP_HOSTNAME
@@ -158,7 +158,7 @@ objects:
             requests:
               cpu: 1m
               memory: 50Mi
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_POSTGRESQL}:${IMAGE_TAG}'
           name: pcp-postgresql-core
           env:
             - name: PCP_HOSTNAME
@@ -192,7 +192,7 @@ objects:
             requests:
               cpu: 1m
               memory: 50Mi
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-postgresql-monitor:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_POSTGRESQL}:${IMAGE_TAG}'
           name: pcp-postgresql-jenkins-proxy
           env:
             - name: PCP_HOSTNAME
@@ -300,7 +300,7 @@ objects:
                 path: oso.tenant.salt
                 mode: 292
         containers:
-        - image: 'prod.registry.devshift.net/osio-prod/perf/oso-central-logger:${IMAGE_TAG}'
+        - image: '${IMAGE_OSO_CENTRAL_LOGGER}:${IMAGE_TAG}'
           name: oso-central-logger
           volumeMounts:
             - name: pcp-logs
@@ -317,7 +317,7 @@ objects:
             requests:
               cpu: 1m
               memory: 500Mi
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-central-webapi:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_CENTRAL_WEBAPI}:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
             - name: pcp-logs
@@ -339,7 +339,7 @@ objects:
             requests:
               cpu: 1m
               memory: 500Mi
-        - image: 'prod.registry.devshift.net/osio-prod/perf/oso-central-webapi-guard:${IMAGE_TAG}'
+        - image: '${IMAGE_OSO_CENTRAL_WEBAPI_GUARD}:${IMAGE_TAG}'
           name: oso-central-webapi-guard
           volumeMounts:
             - name: pcp-logs
@@ -393,5 +393,17 @@ objects:
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
 parameters:
+- name: IMAGE_PCP_CENTRAL_LOGGER
+  value: prod.registry.devshift.net/osio-prod/perf/pcp-central-logger
+- name: IMAGE_PCP_CENTRAL_WEBAPI
+  value: prod.registry.devshift.net/osio-prod/perf/pcp-central-webapi
+- name: IMAGE_PCP_WEBAPI_GUARD
+  value: prod.registry.devshift.net/osio-prod/perf/pcp-webapi-guard
+- name: IMAGE_PCP_POSTGRESQL
+  value: prod.registry.devshift.net/osio-prod/perf/pcp-postgresql-monitor
+- name: IMAGE_OSO_CENTRAL_LOGGER
+  value: prod.registry.devshift.net/osio-prod/perf/oso-central-logger
+- name: IMAGE_OSO_CENTRAL_WEBAPI_GUARD
+  value: prod.registry.devshift.net/osio-prod/perf/oso-central-webapi-guard
 - name: IMAGE_TAG
   value: latest
