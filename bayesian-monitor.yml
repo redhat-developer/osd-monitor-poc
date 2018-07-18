@@ -26,7 +26,7 @@ objects:
             persistentVolumeClaim:
               claimName: osd-monitor-pcplogs
         containers:
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-bayesian-central-logger:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_BAYESIAN_CENTRAL_LOGGER}:${IMAGE_TAG}'
           name: pcp-bayesian-central-logger
           volumeMounts:
             - name: pcp-logs
@@ -37,7 +37,7 @@ objects:
               value: zabbix.devshift.net
             - name: VALGRIND
               value: ~
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-central-webapi:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_CENTRAL_WEBAPI}:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
             - name: pcp-logs
@@ -52,7 +52,7 @@ objects:
             initiaDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
-        - image: 'prod.registry.devshift.net/osio-prod/perf/pcp-bayesian-webapi-guard:${IMAGE_TAG}'
+        - image: '${IMAGE_PCP_BAYESIAN_WEBAPI_GUARD}:${IMAGE_TAG}'
           name: pcp-webapi-guard
           volumeMounts:
             - name: pcp-logs
@@ -106,6 +106,12 @@ objects:
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
 parameters:
+- name: IMAGE_PCP_BAYESIAN_CENTRAL_LOGGER
+  value: prod.registry.devshift.net/osio-prod/perf/pcp-bayesian-central-logger
+- name: IMAGE_PCP_CENTRAL_WEBAPI
+  value: prod.registry.devshift.net/osio-prod/perf/pcp-central-webapi
+- name: IMAGE_PCP_BAYESIAN_WEBAPI_GUARD
+  value: prod.registry.devshift.net/osio-prod/perf/pcp-bayesian-webapi-guard
 - name: IMAGE_TAG
   value: latest
 - apiVersion: v1
