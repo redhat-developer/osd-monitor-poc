@@ -394,16 +394,16 @@ objects:
       insecureEdgeTerminationPolicy: Redirect
 parameters:
 - name: IMAGE_PCP_CENTRAL_LOGGER
-  value: prod.registry.devshift.net/osio-prod/perf/pcp-central-logger
+  value: quay.io/openshiftio/rhel-perf-pcp-central-logger
 - name: IMAGE_PCP_CENTRAL_WEBAPI
-  value: prod.registry.devshift.net/osio-prod/perf/pcp-central-webapi
+  value: quay.io/openshiftio/rhel-perf-pcp-central-webapi
 - name: IMAGE_PCP_WEBAPI_GUARD
-  value: prod.registry.devshift.net/osio-prod/perf/pcp-webapi-guard
+  value: quay.io/openshiftio/rhel-perf-pcp-webapi-guard
 - name: IMAGE_PCP_POSTGRESQL
-  value: prod.registry.devshift.net/osio-prod/perf/pcp-postgresql-monitor
+  value: quay.io/openshiftio/rhel-perf-pcp-postgresql-monitor
 - name: IMAGE_OSO_CENTRAL_LOGGER
-  value: prod.registry.devshift.net/osio-prod/perf/oso-central-logger
+  value: quay.io/openshiftio/rhel-perf-oso-central-logger
 - name: IMAGE_OSO_CENTRAL_WEBAPI_GUARD
-  value: prod.registry.devshift.net/osio-prod/perf/oso-central-webapi-guard
+  value: quay.io/openshiftio/rhel-perf-oso-central-webapi-guard
 - name: IMAGE_TAG
   value: latest

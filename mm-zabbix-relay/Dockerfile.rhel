@@ -1,4 +1,4 @@
-FROM prod.registry.devshift.net/osio-prod/base/pcp:latest
+FROM quay.io/openshiftio/rhel-base-pcp:latest
 
 # Install pcp - collection basics
 COPY pcp.repo /etc/yum.repos.d/pcp.repo
@@ -10,7 +10,7 @@ ADD pmmgr-mm /etc/pcp/pmmgr-mm
 
 RUN chmod +x /usr/bin/fix-permissions && \
     /usr/bin/fix-permissions /etc/pcp && \
-    /usr/bin/fix-permissions /var/lib/pcp && \  
+    /usr/bin/fix-permissions /var/lib/pcp && \
     /usr/bin/fix-permissions /var/log/pcp
 
 ENV MALLOC_ARENA_MAX 1

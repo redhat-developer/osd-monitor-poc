@@ -12,11 +12,12 @@ function build_push() {
     docker push ${TARGET_IMAGE}:latest
 }
 
-yum -y install docker 
+yum -y install docker
 service docker start
 
-[ -f jenkins-env ] && cat jenkins-env | grep -e GIT -e DEVSHIFT > inherit-env
-[ -f inherit-env ] && . inherit-env
+eval "$(./env-toolkit load -f jenkins-env.json -r GIT DEVSHIFT)"
+
+REGISTRY="quay.io"
 
 # TARGET variable gives ability to switch context for building rhel based images, default is "centos"
 # If CI slave is configured with TARGET="rhel" RHEL based images should be generated then.
@@ -24,16 +25,8 @@ TARGET=${TARGET:-"centos"}
 
 TAG=$(echo $GIT_COMMIT | cut -c1-${DEVSHIFT_TAG_LEN})
 
-if [ "$TARGET" == "rhel" ]; then
-    DOCKERFILE="Dockerfile.rhel"
-    REGISTRY=${DOCKER_REGISTRY:-"push.registry.devshift.net/osio-prod"}
-else
-    DOCKERFILE="Dockerfile"
-    REGISTRY="push.registry.devshift.net"
-fi
-
-if [ -n "${DEVSHIFT_USERNAME}" -a -n "${DEVSHIFT_PASSWORD}" ]; then
-    docker login -u "${DEVSHIFT_USERNAME}" -p "${DEVSHIFT_PASSWORD}" "${REGISTRY}"
+if [ -n "${QUAY_USERNAME}" -a -n "${QUAY_PASSWORD}" ]; then
+    docker login -u "${QUAY_USERNAME}" -p "${QUAY_PASSWORD}" "${REGISTRY}"
 else
     echo "Could not login, missing credentials for the registry"
 fi
@@ -51,5 +44,15 @@ for subdir in pcp-node-collector \
                   oso-central-logger \
                   oso-central-webapi-guard
 do
-    (cd $subdir; build_push ${REGISTRY}/perf/$subdir ${TAG})
+    (
+      if [ "$TARGET" = "rhel" ]; then
+          DOCKERFILE="Dockerfile.rhel"
+          IMAGE="${REGISTRY}/openshiftio/rhel-perf-$subdir"
+      else
+          DOCKERFILE="Dockerfile"
+          IMAGE="${REGISTRY}/openshiftio/perf-$subdir"
+      fi
+
+      cd $subdir; build_push ${IMAGE} ${TAG}
+    )
 done
