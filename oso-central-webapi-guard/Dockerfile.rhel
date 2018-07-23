@@ -1,4 +1,4 @@
-FROM prod.registry.devshift.net/osio-prod/base/httpd:latest
+FROM quay.io/openshiftio/rhel-base-httpd:latest
 
 RUN sed -i -e "s,Listen 80,Listen 8001," /etc/httpd/conf/httpd.conf
 RUN sed -i -e "s,logs/error_log,/dev/stderr," /etc/httpd/conf/httpd.conf

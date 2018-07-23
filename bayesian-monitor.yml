@@ -107,11 +107,11 @@ objects:
       insecureEdgeTerminationPolicy: Redirect
 parameters:
 - name: IMAGE_PCP_BAYESIAN_CENTRAL_LOGGER
-  value: prod.registry.devshift.net/osio-prod/perf/pcp-bayesian-central-logger
+  value: quay.io/openshiftio/rhel-perf-pcp-bayesian-central-logger
 - name: IMAGE_PCP_CENTRAL_WEBAPI
-  value: prod.registry.devshift.net/osio-prod/perf/pcp-central-webapi
+  value: quay.io/openshiftio/rhel-perf-pcp-central-webapi
 - name: IMAGE_PCP_BAYESIAN_WEBAPI_GUARD
-  value: prod.registry.devshift.net/osio-prod/perf/pcp-bayesian-webapi-guard
+  value: quay.io/openshiftio/rhel-perf-pcp-bayesian-webapi-guard
 - name: IMAGE_TAG
   value: latest
 - apiVersion: v1
