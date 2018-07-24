@@ -15,7 +15,8 @@ function build_push() {
 yum -y install docker
 service docker start
 
-eval "$(./env-toolkit load -f jenkins-env.json -r GIT DEVSHIFT)"
+# Retrieve credentials to push the image to the docker hub
+eval "$(./env-toolkit load -f jenkins-env.json -r GIT DEVSHIFT ^QUAY)"
 
 REGISTRY="quay.io"
 
