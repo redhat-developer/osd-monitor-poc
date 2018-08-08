@@ -105,6 +105,10 @@ objects:
     tls:
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: osd-monitor
 parameters:
 - name: IMAGE_PCP_BAYESIAN_CENTRAL_LOGGER
   value: quay.io/openshiftio/rhel-perf-pcp-bayesian-central-logger
@@ -114,7 +118,3 @@ parameters:
   value: quay.io/openshiftio/rhel-perf-pcp-bayesian-webapi-guard
 - name: IMAGE_TAG
   value: latest
-- apiVersion: v1
-  kind: ServiceAccount
-  metadata:
-    name: osd-monitor
