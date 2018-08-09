@@ -3,6 +3,16 @@ apiVersion: v1
 metadata:
   name: osd-monitor
 objects:
+- kind: PersistentVolumeClaim
+  apiVersion: v1
+  metadata:
+    name: osd-monitor-pcplogs
+  spec:
+   accessModes:
+   - ReadWriteMany
+   resources:
+     requests:
+       storage: 10Gi
 - kind: DeploymentConfig
   apiVersion: v1
   metadata:
@@ -105,8 +115,8 @@ objects:
     tls:
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
-- apiVersion: v1
-  kind: ServiceAccount
+- kind: ServiceAccount
+  apiVersion: v1
   metadata:
     name: osd-monitor
 parameters:
