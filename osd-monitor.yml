@@ -269,6 +269,8 @@ objects:
       insecureEdgeTerminationPolicy: Redirect
 - apiVersion: v1
   kind: ServiceAccount
+  imagePullSecrets:
+  - name: quay.io
   metadata:
     name: osd-monitor
 parameters:
