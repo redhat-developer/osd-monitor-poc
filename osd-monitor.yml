@@ -229,6 +229,40 @@ objects:
             requests:
               cpu: 1m
               memory: 50Mi
+        - image: '${IMAGE_PCP_POSTGRESQL}:${IMAGE_TAG}'
+          name: pcp-postgresql-f8cluster
+          env:
+            - name: PCP_HOSTNAME
+              value: DB-f8cluster
+            - name: DB_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: f8cluster
+                  key: db.host
+            - name: DB_DB
+              value: postgres
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: f8cluster
+                  key: db.user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: f8cluster
+                  key: db.password
+            - name: PMCD_PORT
+              value: "54325"
+          ports:
+            - containerPort: 54325
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 200Mi
+            requests:
+              cpu: 1m
+              memory: 50Mi
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         securityContext: {}

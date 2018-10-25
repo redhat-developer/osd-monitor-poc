@@ -302,6 +302,27 @@ go http latency</th>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=jenkins-proxy-*.prometheus.*.http_request_duration_microseconds_sum.*&target=jenkins-proxy-*.prometheus.*.traefik_request_duration_seconds_sum.*"></td>
 </tr>
 <tr>
+<td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=f8cluster-*.filesys.full.*&target=f8cluster-*.proc.io.*_bytes.*,f8cluster-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,f8cluster-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=f8cluster-*.network.interface.in.bytes.*,f8cluster-*.network.interface.out.bytes.*&target=f8cluster-*.proc.fd.count.*,f8cluster-*.proc.psinfo.threads.*&target=f8cluster-*.proc.psinfo.rss.*,f8cluster-*.proc.psinfo.vsize.*,f8cluster-*.cgroup.memory.usage.*&target=f8cluster-*.proc.psinfo.?time.*,f8cluster-*.cgroup.cpuacct.stat.*.*&target=f8cluster-*.prometheus.*.go_gc_duration_seconds_sum&target=f8cluster-*.prometheus.*.http_*_size_bytes_sum.*,f8cluster-*.prometheus.*.traefik_requests_total.*&target=f8cluster-*.prometheus.*.http_request_duration_microseconds_sum.*,f8cluster-*.prometheus.*.traefik_request_duration_seconds_sum.*">f8cluster</a></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8cluster-*.filesys.full.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8cluster-*.proc.io.*_bytes.*&target=f8cluster-*.cgroup.blkio.all.throttle.io_service_bytes.read.*&target=f8cluster-*.cgroup.blkio.all.throttle.io_service_bytes.write.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8cluster-*.network.interface.in.bytes.*&target=f8cluster-*.network.interface.out.bytes.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8cluster-*.proc.fd.count.*&target=f8cluster-*.proc.psinfo.threads.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8cluster-*.proc.psinfo.rss.*&target=f8cluster-*.proc.psinfo.vsize.*&target=f8cluster-*.cgroup.memory.usage.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8cluster-*.proc.psinfo.?time.*&target=f8cluster-*.cgroup.cpuacct.stat.*.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8cluster-*.prometheus.*.go_gc_duration_seconds_sum"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8cluster-*.prometheus.*.http_*_size_bytes_sum.*&target=f8cluster-*.prometheus.*.traefik_requests_total.*"></td>
+<td>
+<img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=f8cluster-*.prometheus.*.http_request_duration_microseconds_sum.*&target=f8cluster-*.prometheus.*.traefik_request_duration_seconds_sum.*"></td>
+</tr>
+<tr>
 <td><a href="/grafana/index.html#/dashboard/script/multichart.js?from=now-6h&to=now&span12s=12&height=150&target=osd-monitor-*.filesys.full.*&target=osd-monitor-*.proc.io.*_bytes.*,osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.read.*,osd-monitor-*.cgroup.blkio.all.throttle.io_service_bytes.write.*&target=osd-monitor-*.network.interface.in.bytes.*,osd-monitor-*.network.interface.out.bytes.*&target=osd-monitor-*.proc.fd.count.*,osd-monitor-*.proc.psinfo.threads.*&target=osd-monitor-*.proc.psinfo.rss.*,osd-monitor-*.proc.psinfo.vsize.*,osd-monitor-*.cgroup.memory.usage.*&target=osd-monitor-*.proc.psinfo.?time.*,osd-monitor-*.cgroup.cpuacct.stat.*.*&target=osd-monitor-*.prometheus.*.go_gc_duration_seconds_sum&target=osd-monitor-*.prometheus.*.http_*_size_bytes_sum.*,osd-monitor-*.prometheus.*.traefik_requests_total.*&target=osd-monitor-*.prometheus.*.http_request_duration_microseconds_sum.*,osd-monitor-*.prometheus.*.traefik_request_duration_seconds_sum.*">osd-monitor</a></td>
 <td>
 <img class="pcp" src="/graphite/render/?from=-6h&until=now&maxDataPoints=36&width=100&height=40&graphOnly=true&lineWidth=0.7&target=osd-monitor-*.filesys.full.*"></td>
