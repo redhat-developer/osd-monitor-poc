@@ -110,7 +110,7 @@ for colno in `seq $component_num_columns`; do
 done
 echo '</tr>'
 
-for component in auth che rhche core f8notification f8osoproxy f8tenant f8toggles jenkins-idler jenkins-proxy f8cluster osd-monitor oso-monitor keycloak-server test-keeper work-in-progress hook
+for component in auth che rhche core f8notification f8osoproxy f8tenant f8toggles jenkins-idler jenkins-proxy f8cluster osd-monitor keycloak-server test-keeper work-in-progress hook
 do
     echo '<tr>'
     
