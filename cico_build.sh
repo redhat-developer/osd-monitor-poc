@@ -39,11 +39,7 @@ for subdir in pcp-node-collector \
                   pcp-bayesian-central-logger \
                   pcp-bayesian-webapi-guard \
                   pcp-postgresql-monitor \
-                  mm-zabbix-relay \
-                  oso-pcp-prometheus \
-                  oso-webapi-guard \
-                  oso-central-logger \
-                  oso-central-webapi-guard
+                  mm-zabbix-relay
 do
     (
       if [ "$TARGET" = "rhel" ]; then
