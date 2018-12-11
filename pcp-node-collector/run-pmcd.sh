@@ -1,6 +1,6 @@
 #! /bin/bash -e
 
-: "${PCP_HOSTNAME:=`hostname`}"
+: "${PCP_HOSTNAME:=`uname -n`}"
 
 # Adjust to OSD/OSO? AWS conventions: ip-172-31-51-101.ec2.internal => NODE-ip-172-31-51-101
 PCP_NODE_HOSTNAME=NODE-`echo $PCP_HOSTNAME | cut -f1 -d.`

@@ -26,7 +26,7 @@ cd $PCP_VAR_DIR/pmns
 
 cd $PCP_LOG_DIR
 
-: "${PCP_HOSTNAME:=`hostname`}"
+: "${PCP_HOSTNAME:=`uname -n`}"
 # possibly: filter pod name?
 exec /usr/libexec/pcp/bin/pmcd -l - -f -A -H $PCP_HOSTNAME
 ) &

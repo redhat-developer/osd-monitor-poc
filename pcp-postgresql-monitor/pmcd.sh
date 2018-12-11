@@ -1,6 +1,6 @@
 #! /bin/bash -e
 
-: "${PCP_HOSTNAME:=`hostname`}"
+: "${PCP_HOSTNAME:=`uname -n`}"
 
 # Set up internal pmcd
 
