@@ -25,6 +25,9 @@ objects:
           - name: pcp-logs
             persistentVolumeClaim:
               claimName: osd-monitor-pcplogs
+          - name: pcp-prom-endpoints
+            configMap:
+              name: osd-monitor-prom-endpoints
         containers:
         - image: '${IMAGE_PCP_CENTRAL_LOGGER}:${IMAGE_TAG}'
           name: pcp-central-logger
@@ -40,6 +43,21 @@ objects:
             limits:
               cpu: 2000m
               memory: 3000Mi
+            requests:
+              cpu: 1m
+              memory: 500Mi
+        - image: '${IMAGE_PCP_PROMETHEUS_IN}:${IMAGE_TAG}'
+          name: pcp-prometheus-in
+          volumeMounts:
+            - name: pcp-prom-endpoints
+              mountPath: /var/lib/pcp/pmdas/prometheus/urls.d
+          env:
+            - name: PCP_HOSTNAME
+              value: osio
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1000Mi
             requests:
               cpu: 1m
               memory: 500Mi
@@ -302,6 +320,12 @@ objects:
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
 - apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: osd-monitor-prom-endpoints
+  data:
+    rhche_host.url: http://rhche-host:8087/metrics
+- apiVersion: v1
   kind: ServiceAccount
   imagePullSecrets:
   - name: quay.io
@@ -312,6 +336,8 @@ parameters:
   value: quay.io/openshiftio/rhel-perf-pcp-central-logger
 - name: IMAGE_PCP_CENTRAL_WEBAPI
   value: quay.io/openshiftio/rhel-perf-pcp-central-webapi
+- name: IMAGE_PCP_PROMETHEUS_IN
+  value: quay.io/openshiftio/rhel-perf-pcp-prometheus-in
 - name: IMAGE_PCP_WEBAPI_GUARD
   value: quay.io/openshiftio/rhel-perf-pcp-webapi-guard
 - name: IMAGE_PCP_POSTGRESQL

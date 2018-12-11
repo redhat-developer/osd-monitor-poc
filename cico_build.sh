@@ -39,6 +39,7 @@ for subdir in pcp-node-collector \
                   pcp-bayesian-central-logger \
                   pcp-bayesian-webapi-guard \
                   pcp-postgresql-monitor \
+                  pcp-prometheus-in \
                   mm-zabbix-relay
 do
     (
