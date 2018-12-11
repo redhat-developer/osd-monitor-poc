@@ -14,5 +14,7 @@ RUN chmod +x /usr/bin/fix-permissions && \
     /usr/bin/fix-permissions /var/log/pcp
 
 ENV PCP_HOSTNAME "osio"
+ENV PMCD_PORT "54320"
+EXPOSE 54320
 
 ENTRYPOINT [ "/bin/sh", "/pmcd.sh" ]

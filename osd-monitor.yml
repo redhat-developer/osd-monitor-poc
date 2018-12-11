@@ -54,13 +54,18 @@ objects:
           env:
             - name: PCP_HOSTNAME
               value: osio
+            - name: PMCD_PORT
+              value: "54320"
+          ports:
+            - containerPort: 54320
+              protocol: TCP
           resources:
             limits:
               cpu: 500m
               memory: 1000Mi
             requests:
               cpu: 1m
-              memory: 500Mi
+              memory: 800Mi
         - image: '${IMAGE_PCP_CENTRAL_WEBAPI}:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:

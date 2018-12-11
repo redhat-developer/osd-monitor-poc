@@ -5,7 +5,7 @@
 # No special signal handling or cleanup required.
 
 # Setup pmcd to run in unprivileged mode of operation
-. /etc/pcp.env
+. /etc/pcp.conf
 
 PATH=$PATH:$PCP_BINADM_DIR
 export PATH
@@ -35,4 +35,4 @@ pmnsadd -n root prometheus
 cd $PCP_LOG_DIR
 
 : "${PCP_HOSTNAME:=`uname -n`}"
-exec /usr/libexec/pcp/bin/pmcd -l - -f -A -Dpmns,fetch -H $PCP_HOSTNAME
+exec /usr/libexec/pcp/bin/pmcd -l - -f -p $PMCD_PORT -A -Dpmns,fetch -H $PCP_HOSTNAME
