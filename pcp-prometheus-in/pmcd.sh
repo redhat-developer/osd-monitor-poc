@@ -14,7 +14,7 @@ export PATH
 rm -f $PCP_PMCDCONF_PATH; # start empty
 echo "# Name  ID  IPC  IPC Params  File/Cmd" >> $PCP_PMCDCONF_PATH;
 echo "pmcd     2  dso  pmcd_init   $PCP_PMDAS_DIR/pmcd/pmda_pmcd.so"   >> $PCP_PMCDCONF_PATH;
-echo "prometheus 144 pipe binary python $PCP_PMDAS_DIR/prometheus/pmdaprometheus.python -l -" >> $PCP_PMCDCONF_PATH;
+echo "prometheus 144 pipe binary python $PCP_PMDAS_DIR/prometheus/pmdaprometheus.python -D -l -" >> $PCP_PMCDCONF_PATH;
 rm -f $PCP_VAR_DIR/pmns/root_xfs $PCP_VAR_DIR/pmns/root_jbd2 $PCP_VAR_DIR/pmns/root_root $PCP_VAR_DIR/pmns/root
 echo 'prometheus	144:*:*' > $PCP_VAR_DIR/pmns/prometheus
 touch $PCP_VAR_DIR/pmns/.NeedRebuild
@@ -34,5 +34,5 @@ pmnsadd -n root prometheus
 
 cd $PCP_LOG_DIR
 
-: "${PCP_HOSTNAME:=`hostname`}"
-exec /usr/libexec/pcp/bin/pmcd -l - -f -A -H $PCP_HOSTNAME
+: "${PCP_HOSTNAME:=`uname -n`}"
+exec /usr/libexec/pcp/bin/pmcd -l - -f -A -Dpmns,fetch -H $PCP_HOSTNAME

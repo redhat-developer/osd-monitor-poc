@@ -324,7 +324,7 @@ objects:
   metadata:
     name: osd-monitor-prom-endpoints
   data:
-    rhche_host.url: http://rhche-host:8087/metrics
+    rhche_host.url: "http://rhche-host:8087/metrics\n"
 - apiVersion: v1
   kind: ServiceAccount
   imagePullSecrets:
