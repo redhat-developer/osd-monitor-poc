@@ -13,4 +13,4 @@ ENV MALLOC_ARENA_MAX 1
 
 # -M8?
 
-ENTRYPOINT ["/usr/libexec/pcp/bin/pmwebd", "-v", "-v", "-G", "-X", "-R", "/usr/share/pcp/webapps", "-A", "/var/log/pcp/pmmgr", "-i", "15", "-P", "-J", "-L", "-M8"]
+ENTRYPOINT ["/usr/libexec/pcp/bin/pmwebd", "-v", "-v", "-G", "-X", "-R", "/usr/share/pcp/webapps", "-A", "/var/log/pcp/pmmgr", "-i", "15", "-P", "-J", "-L", "-M8", "-r25"]
