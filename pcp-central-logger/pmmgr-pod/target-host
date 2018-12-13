@@ -1,3 +1,4 @@
+pcp://localhost:54320/
 pmcd-test-keeper.sentry-preview.svc
 pmcd-work-in-progress.sentry-preview.svc
 pmcd-hook.sentry-preview.svc
