@@ -78,7 +78,7 @@ objects:
             httpGet:
               path: /pmapi/1/metrics?target=kernel.all.load
               port: 44323
-            initiaDelaySeconds: 30
+            initialDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
           resources:
@@ -90,23 +90,50 @@ objects:
               memory: 500Mi
         - image: '${IMAGE_PCP_WEBAPI_GUARD}:${IMAGE_TAG}'
           name: pcp-webapi-guard
-          volumeMounts:
-            - name: pcp-logs
-              mountPath: /var/log/pcp
+          env:
+            - name: OAUTH2_PROXY_REDIRECT_URL
+              valueFrom:
+                secretKeyRef:
+                  name: osd-monitor
+                  key: redirect.url
+            - name: OAUTH2_PROXY_GITHUB_ORG
+              valueFrom:
+                secretKeyRef:
+                  name: osd-monitor
+                  key: github.org
+            - name: OAUTH2_PROXY_GITHUB_TEAM
+              valueFrom:
+                secretKeyRef:
+                  name: osd-monitor
+                  key: github.team
+            - name: OAUTH2_PROXY_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: osd-monitor
+                  key: client.id
+            - name: OAUTH2_PROXY_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: osd-monitor
+                  key: client.secret
+            - name: OAUTH2_PROXY_COOKIE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: osd-monitor
+                  key: cookie.secret
           ports:
             - containerPort: 8000
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /index.html
+              path: /ping
               port: 8000
-            initiaDelaySeconds: 30
             periodSeconds: 60
             timeoutSeconds: 10
           resources:
             limits:
               cpu: 1000m
-              memory: 500Mi
+              memory: 200Mi
             requests:
               cpu: 1m
               memory: 50Mi

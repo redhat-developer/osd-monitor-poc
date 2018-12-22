@@ -1,19 +1,20 @@
-FROM quay.io/openshiftio/rhel-base-httpd:latest
+FROM quay.io/openshiftio/rhel-base-rhel:latest
 
-RUN sed -i -e "s,Listen 80,Listen 8000," /etc/httpd/conf/httpd.conf
-RUN sed -i -e "s,logs/error_log,/dev/stderr," /etc/httpd/conf/httpd.conf
-RUN sed -i -e "s,logs/access_log,/dev/stdout," /etc/httpd/conf/httpd.conf
-EXPOSE 8000
+COPY oauth2_proxy-2.2.0.linux-amd64.go1.8.1.tar.gz /tmp
+RUN tar xvfz /tmp/oauth2_proxy-2.2.0.linux-amd64.go1.8.1.tar.gz
+RUN mv oauth2_proxy-2.2.0.linux-amd64.go1.8.1/oauth2_proxy /usr/local/bin
+RUN rm /tmp/oauth2_proxy-2.2.0.linux-amd64.go1.8.1.tar.gz
 
-COPY pmwebd_guard.conf /etc/httpd/conf.d/pmwebd_guard.conf
-COPY pmwebd_guard.htpasswd /etc/httpd/conf/pmwebd_guard.htpasswd
-RUN chmod a+rwX /run/httpd
+COPY oauth2_proxy_start.sh /usr/local/bin
 
-COPY index.html /var/www/html
+COPY pmwebd_guard.htpasswd /usr/local/etc
 
-VOLUME /var/log/pcp
+ENV OAUTH2_PROXY_CLIENT_ID ""
+ENV OAUTH2_PROXY_CLIENT_SECRET ""
+ENV OAUTH2_PROXY_COOKIE_SECRET ""
+ENV OAUTH2_PROXY_COOKIE_DOMAIN ""
+ENV OAUTH2_PROXY_GITHUB_TEAM ""
+ENV OAUTH2_PROXY_GITHUB_ORG ""
+ENV OAUTH2_PROXY_REDIRECT_URL ""
 
-STOPSIGNAL SIGWINCH
-
-# ENTRYPOINT ["/bin/bash"]
-ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+ENTRYPOINT ["/usr/local/bin/oauth2_proxy_start.sh"]
