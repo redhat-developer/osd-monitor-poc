@@ -4,6 +4,8 @@ FROM quay.io/openshiftio/rhel-base-pcp:latest
 COPY pcp.repo /etc/yum.repos.d/pcp.repo
 RUN yum update -y pcp-webapi "pcp-webapp-*" && yum clean all
 
+COPY index.html /usr/share/pcp/webapps/index.html
+
 # Expose pmwebd's main port on the host interface
 EXPOSE 44323
 
