@@ -10,7 +10,7 @@ exec /usr/local/bin/oauth2_proxy \
     --provider=github \
     --github-org=$OAUTH2_PROXY_GITHUB_ORG \
     --github-team=$OAUTH2_PROXY_GITHUB_TEAM \
-    --scope="read:org" \
+    --scope="user:email read:user read:org" \
     --email-domain='*' \
 
 

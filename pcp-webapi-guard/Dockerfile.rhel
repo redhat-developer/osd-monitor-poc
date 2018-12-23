@@ -1,10 +1,6 @@
 FROM quay.io/openshiftio/rhel-base-rhel:latest
 
-COPY oauth2_proxy-2.2.0.linux-amd64.go1.8.1.tar.gz /tmp
-RUN tar xvfz /tmp/oauth2_proxy-2.2.0.linux-amd64.go1.8.1.tar.gz
-RUN mv oauth2_proxy-2.2.0.linux-amd64.go1.8.1/oauth2_proxy /usr/local/bin
-RUN rm /tmp/oauth2_proxy-2.2.0.linux-amd64.go1.8.1.tar.gz
-
+COPY oauth2_proxy /usr/local/bin
 COPY oauth2_proxy_start.sh /usr/local/bin
 
 COPY pmwebd_guard.htpasswd /usr/local/etc
