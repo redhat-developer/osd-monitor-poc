@@ -6,8 +6,10 @@ exec /usr/local/bin/oauth2_proxy \
     --cookie-secure=false \
     --request-logging=true \
     --htpasswd-file=/usr/local/etc/pmwebd_guard.htpasswd \
-    --upstream=http://localhost:16686/#jaeger \
-    --upstream=http://localhost:44323/ \
+    --upstream=http://localhost:16686/jaeger/ \
+    --upstream=http://localhost:44323/index.html \
+    --upstream=http://localhost:44323/graphite/ \
+    --upstream=http://localhost:44323/grafana/ \
     --provider=github \
     --github-org=$OAUTH2_PROXY_GITHUB_ORG \
     --github-team=$OAUTH2_PROXY_GITHUB_TEAM \
