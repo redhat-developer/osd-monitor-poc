@@ -40,6 +40,7 @@ for subdir in pcp-node-collector \
                   pcp-bayesian-webapi-guard \
                   pcp-postgresql-monitor \
                   pcp-prometheus-in \
+                  jaeger \
                   mm-zabbix-relay
 do
     (

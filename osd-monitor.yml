@@ -66,6 +66,32 @@ objects:
             requests:
               cpu: 1m
               memory: 800Mi
+        - image: '${IMAGE_PCP_JAEGER}:${IMAGE_TAG}'
+          name: jaeger
+          ports:
+            - containerPort: 5775
+              protocol: UDP
+            - containerPort: 6831
+              protocol: UDP
+            - containerPort: 6832
+              protocol: UDP
+            - containerPort: 5778
+              protocol: TCP
+            - containerPort: 9411
+              protocol: TCP
+            - containerPort: 14267
+              protocol: TCP
+            - containerPort: 14268
+              protocol: TCP
+            - containerPort: 16686
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1000Mi
+            requests:
+              cpu: 1m
+              memory: 800Mi
         - image: '${IMAGE_PCP_CENTRAL_WEBAPI}:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
@@ -340,6 +366,22 @@ objects:
       service: osd-monitor
     type: ClusterIP
     sessionAffinity: None
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: osd-monitor-jaeger-zipkin
+    labels:
+      service: osd-monitor-jaeger-zipkin
+  spec:
+    ports:
+      - name: 'osd-monitor-jaeger-zipkin'
+        protocol: TCP
+        port: 9411
+        targetPort: 9411
+    selector:
+      service: osd-monitor
+    type: ClusterIP
+    sessionAffinity: None
 - kind: Route
   apiVersion: v1
   metadata:
@@ -357,6 +399,7 @@ objects:
     name: osd-monitor-prom-endpoints
   data:
     rhche_host.url: "http://rhche-host:8087/metrics\n"
+    jaeger.url: "http://localhost:16686/jaeger/metrics\n"
 - apiVersion: v1
   kind: ServiceAccount
   imagePullSecrets:
@@ -370,6 +413,8 @@ parameters:
   value: quay.io/openshiftio/rhel-perf-pcp-central-webapi
 - name: IMAGE_PCP_PROMETHEUS_IN
   value: quay.io/openshiftio/rhel-perf-pcp-prometheus-in
+- name: IMAGE_PCP_JAEGER
+  value: quay.io/openshiftio/rhel-perf-jaeger
 - name: IMAGE_PCP_WEBAPI_GUARD
   value: quay.io/openshiftio/rhel-perf-pcp-webapi-guard
 - name: IMAGE_PCP_POSTGRESQL
