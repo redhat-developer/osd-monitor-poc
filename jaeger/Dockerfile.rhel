@@ -18,4 +18,4 @@ EXPOSE 14268
 # ui, query, metrics, http
 EXPOSE 16686
 
-ENTRYPOINT ["/opt/jaeger-1.8.2-linux-amd64/jaeger-all-in-one", "--query.base-path", "/jaeger", "--metrics-backend", "prometheus", "--metrics-http-route", "/jaeger/metrics", "--collector.zipkin.http-port", "9411"]
+ENTRYPOINT ["/opt/jaeger-1.8.2-linux-amd64/jaeger-all-in-one", "--query.base-path", "/jaeger", "--metrics-backend", "prometheus", "--collector.zipkin.http-port", "9411"]
