@@ -1,6 +1,6 @@
 FROM quay.io/openshiftio/rhel-base-rhel:latest
 
-RUN mkdir -p /opt; cd /opt; wget https://github.com/jaegertracing/jaeger/releases/download/v1.8.2/jaeger-1.8.2-linux-amd64.tar.gz; tar xvfz jaeger-1.8.2-linux-amd64.tar.gz
+RUN mkdir -p /opt; cd /opt; curl -L https://github.com/jaegertracing/jaeger/releases/download/v1.8.2/jaeger-1.8.2-linux-amd64.tar.gz | tar xvfz -
 
 # incoming trace data ports
 EXPOSE 5775/udp
