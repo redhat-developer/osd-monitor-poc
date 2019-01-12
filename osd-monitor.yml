@@ -92,6 +92,13 @@ objects:
             requests:
               cpu: 1m
               memory: 800Mi
+          livenessProbe:
+            httpGet:
+              path: /jaeger/metrics
+              port: 16686
+            initialDelaySeconds: 30
+            periodSeconds: 60
+            timeoutSeconds: 10
         - image: '${IMAGE_PCP_CENTRAL_WEBAPI}:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
