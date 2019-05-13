@@ -6,6 +6,7 @@ RUN yum update -y pcp-webapi "pcp-webapp-*" && yum clean all
 
 COPY index.html /usr/share/pcp/webapps/index.html
 COPY che-gaugify-counters.conf /var/lib/pcp/config/derived
+COPY auth-gaugify-counters.conf /var/lib/pcp/config/derived
 
 # Expose pmwebd's main port on the host interface
 EXPOSE 44323
