@@ -35,6 +35,9 @@ objects:
           - name: pcp-logs
             persistentVolumeClaim:
               claimName: osd-monitor-pcplogs
+          - name: pcp-prom-endpoints
+            configMap:
+              name: osd-monitor-prom-endpoints
         containers:
         - image: '${IMAGE_PCP_BAYESIAN_CENTRAL_LOGGER}:${IMAGE_TAG}'
           name: pcp-bayesian-central-logger
@@ -47,6 +50,26 @@ objects:
               value: zabbix.devshift.net
             - name: VALGRIND
               value: ~
+        - image: '${IMAGE_PCP_PROMETHEUS_IN}:${IMAGE_TAG}'
+          name: pcp-prometheus-in
+          volumeMounts:
+            - name: pcp-prom-endpoints
+              mountPath: /var/lib/pcp/pmdas/prometheus/urls.d
+          env:
+            - name: PCP_HOSTNAME
+              value: osio
+            - name: PMCD_PORT
+              value: "54320"
+          ports:
+            - containerPort: 54320
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1000Mi
+            requests:
+              cpu: 1m
+              memory: 800Mi
         - image: '${IMAGE_PCP_CENTRAL_WEBAPI}:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
@@ -115,6 +138,12 @@ objects:
     tls:
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: osd-monitor-prom-endpoints
+  data:
+    bayesian.url: "http://metrics-accumulator:5200/metrics"
 - kind: ServiceAccount
   apiVersion: v1
   metadata:
@@ -126,5 +155,7 @@ parameters:
   value: quay.io/openshiftio/rhel-perf-pcp-central-webapi
 - name: IMAGE_PCP_BAYESIAN_WEBAPI_GUARD
   value: quay.io/openshiftio/rhel-perf-pcp-bayesian-webapi-guard
+- name: IMAGE_PCP_PROMETHEUS_IN
+  value: quay.io/openshiftio/rhel-perf-pcp-prometheus-in
 - name: IMAGE_TAG
   value: latest
