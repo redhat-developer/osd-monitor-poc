@@ -138,12 +138,6 @@ objects:
     tls:
       termination: edge
       insecureEdgeTerminationPolicy: Redirect
-- apiVersion: v1
-  kind: ConfigMap
-  metadata:
-    name: osd-monitor-prom-endpoints
-  data:
-    bayesian.url: "http://metrics-accumulator:5200/metrics"
 - kind: ServiceAccount
   apiVersion: v1
   metadata:
