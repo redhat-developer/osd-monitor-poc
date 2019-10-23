@@ -44,7 +44,13 @@ objects:
           volumeMounts:
             - name: pcp-logs
               mountPath: /var/log/pcp
-          resources: {}
+          resources: 
+            limits:
+              cpu: 100m
+              memory: 6400Mi
+            requests:
+              cpu: 10m
+              memory: 5120Mi
           env:
             - name: ZABBIX_SERVER
               value: zabbix.devshift.net
@@ -65,11 +71,11 @@ objects:
               protocol: TCP
           resources:
             limits:
-              cpu: 500m
-              memory: 1000Mi
+              cpu: 100m
+              memory: 512Mi
             requests:
               cpu: 1m
-              memory: 800Mi
+              memory: 128Mi
         - image: '${IMAGE_PCP_CENTRAL_WEBAPI}:${IMAGE_TAG}'
           name: pcp-central-webapi
           volumeMounts:
@@ -78,6 +84,13 @@ objects:
           ports:
             - containerPort: 44323
               protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 640Mi
+            requests:
+              cpu: 1m
+              memory: 512Mi
           livenessProbe:
             httpGet:
               path: /pmapi/1/metrics?target=kernel.all.load
@@ -93,6 +106,13 @@ objects:
           ports:
             - containerPort: 8000
               protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 1m
+              memory: 32Mi
           livenessProbe:
             httpGet:
               path: /index.html
