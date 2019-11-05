@@ -66,6 +66,8 @@ objects:
               value: osio
             - name: PMCD_PORT
               value: "54320"
+            - name: PMCD_TIMEOUT
+              value: 20
           ports:
             - containerPort: 54320
               protocol: TCP
