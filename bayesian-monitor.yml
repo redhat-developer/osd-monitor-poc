@@ -88,8 +88,8 @@ objects:
               protocol: TCP
           resources:
             limits:
-              cpu: 100m
-              memory: 640Mi
+              cpu: 8000m
+              memory: 8000Mi
             requests:
               cpu: 1m
               memory: 512Mi
