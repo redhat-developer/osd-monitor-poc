@@ -67,7 +67,7 @@ objects:
             - name: PMCD_PORT
               value: "54320"
             - name: PMCD_TIMEOUT
-              value: 20
+              value: ${PMCD_TIMEOUT}
           ports:
             - containerPort: 54320
               protocol: TCP
@@ -165,6 +165,10 @@ objects:
   metadata:
     name: osd-monitor
 parameters:
+- description: PMCD_TIMEOUT
+  name: PMCD_TIMEOUT
+  required: true
+  value: "20"
 - name: IMAGE_PCP_BAYESIAN_CENTRAL_LOGGER
   value: quay.io/openshiftio/rhel-perf-pcp-bayesian-central-logger
 - name: IMAGE_PCP_CENTRAL_WEBAPI
