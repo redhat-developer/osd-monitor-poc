@@ -94,12 +94,11 @@ objects:
               cpu: 1m
               memory: 512Mi
           livenessProbe:
-            httpGet:
-              path: /pmapi/1/metrics?target=kernel.all.load
-              port: 44323
-            initiaDelaySeconds: 30
+            initialDelaySeconds: 120
             periodSeconds: 60
             timeoutSeconds: 10
+            tcpSocket:
+              port: 44323
         - image: '${IMAGE_PCP_BAYESIAN_WEBAPI_GUARD}:${IMAGE_TAG}'
           name: pcp-webapi-guard
           volumeMounts:
